@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Suite" verbose="5">
+	<test name="MainTest">
+		<parameter name="browserType" value="CH" />
+		<parameter name="url"
+			value="https://10.96.0.65:9443/POSAdminTool/AdminTool/Login.faces" />
+		<parameter name="testDataType" value="Excel" />
+		<classes>
+		
+<!-- 						Accounts Classes 							-->
+<!-- 			
+
+			<class name="fawry.sofAutomation.testsActions.accounts.AddAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.SearchAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.AddSubAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.EditSubAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.SearchTerminalTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.ChangeTerminalPinTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.MoveAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.SearchDormantAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.SearchCreditCardAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.AddControlAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.EditControlAccountTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.AddAccountTerminalTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.EditAccountTerminalTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.AccountVerficationTest" />
+			<class name="fawry.sofAutomation.testsActions.accounts.ManageAccountStatusTest" />
+-->
+
+
+
+<!-- 						Admin Classes							 -->
+<!-- 		
+
+			<class name="fawry.sofAutomation.testsActions.admin.AddUserTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.SearchUserTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.ResetPasswordTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.EditUserTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.AddGroupTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.EditGroupTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.SearchGroupTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.SearchRoleTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.EditRoleTest"/>
+			<class name="fawry.sofAutomation.testsActions.admin.AddRoleTest"/> 
+			
+-->
+
+
+<!-- 						Financial Activities Classes							 -->
+
+<!-- 	
+			<class name="fawry.sofAutomation.testsActions.financialActivities.AddAccountTrxTest" /> 
+			<class name="fawry.sofAutomation.testsActions.financialActivities.SearchAccountTrxTest" /> 
+			<class name="fawry.sofAutomation.testsActions.financialActivities.SearchCorrectionTrxTest" />
+			<class name="fawry.sofAutomation.testsActions.financialActivities.AddCreditTransactionTest" /> 
+			<class name="fawry.sofAutomation.testsActions.financialActivities.SearchCreditTrxTest" /> 
+			<class name="fawry.sofAutomation.testsActions.financialActivities.InternalTransferTest" />	
+			<class name="fawry.sofAutomation.testsActions.financialActivities.MultipleTransferTest" />
+-->
+
+ 			
+<!-- 						Basic Definitions Classes							 -->			
+<!-- 
+ 		    <class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddCspBillTypeTest"/>  
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditCspBillTypeTest"/> 
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddCSPAccountTypeTest"/>   
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditCspAccountTypeTest"/> 
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddCSPBTCPoolAccountTest"/>
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.ConfigureCspOverDraftFeesTest"/>
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.ConfigureCspOverDraftClassFactorsTest"/>
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.ConfigureCspSettingsTest"/>
+            <class name="fawry.sofAutomation.testsActions.BasicDefinitions.SearchFinanceProgramSetupTest"/>
+ 			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddVelocityCriteriaTest"/>
+ 			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.SearchVelocityCriteriaTest"/>
+ 			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditVelocityCriteriaTest"/>
+ 	
+			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.SearchCspBtcPoolAccountTest"/> 
+			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditCspBtcPoolAccountTest"/> 
+			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.SearchCspTerminalTypesConfTest"/> 
+			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditCSPAccountTerminalConfTest"/> 
+			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddCspPushAlertTest"/> 
+			<class name="fawry.sofAutomation.testsActions.BasicDefinitions.SearchCspPushAlertConfigurationTest"/> 
+		    <class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditCspPushAlertConfigTest"/> 	
+    		<class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddFinanceProgramTest"/>
+	        <class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditFinanceProgramTest"/>
+		    <class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddFinanceProgramSetupTest"/>						           
+-->  
+
+
+
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
+ 	

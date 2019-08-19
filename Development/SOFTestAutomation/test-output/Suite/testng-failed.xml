@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [Suite]">
+  <test thread-count="5" verbose="5" name="MainTest(failed)">
+    <parameter name="testDataType" value="Excel"/>
+    <parameter name="url" value="https://10.96.0.65:9443/POSAdminTool/AdminTool/Login.faces"/>
+    <parameter name="browserType" value="CH"/>
+    <classes>
+      <class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddVelocityCriteriaTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="login"/>
+          <include name="loadConfiguration"/>
+          <include name="addVelocityCriteria" invocation-numbers="0"/>
+          <include name="deleteOldFiles"/>
+          <include name="screenshotOnFailure"/>
+          <include name="setExtent"/>
+          <include name="endTest"/>
+        </methods>
+      </class> <!-- fawry.sofAutomation.testsActions.BasicDefinitions.AddVelocityCriteriaTest -->
+      <class name="fawry.sofAutomation.testsActions.BasicDefinitions.ConfigureCspOverDraftFeesTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="login"/>
+          <include name="loadConfiguration"/>
+          <include name="configureOverDraftFees" invocation-numbers="0"/>
+          <include name="deleteOldFiles"/>
+          <include name="screenshotOnFailure"/>
+          <include name="setExtent"/>
+          <include name="endTest"/>
+        </methods>
+      </class> <!-- fawry.sofAutomation.testsActions.BasicDefinitions.ConfigureCspOverDraftFeesTest -->
+      <class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddCspBillTypeTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="login"/>
+          <include name="loadConfiguration"/>
+          <include name="addCspBillType" invocation-numbers="0 1"/>
+          <include name="deleteOldFiles"/>
+          <include name="screenshotOnFailure"/>
+          <include name="setExtent"/>
+          <include name="endTest"/>
+        </methods>
+      </class> <!-- fawry.sofAutomation.testsActions.BasicDefinitions.AddCspBillTypeTest -->
+      <class name="fawry.sofAutomation.testsActions.BasicDefinitions.SearchFinanceProgramSetupTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="searchFinanceProgramSetup" invocation-numbers="0 2"/>
+          <include name="loadConfiguration"/>
+          <include name="deleteOldFiles"/>
+          <include name="screenshotOnFailure"/>
+          <include name="setExtent"/>
+          <include name="login"/>
+          <include name="endTest"/>
+        </methods>
+      </class> <!-- fawry.sofAutomation.testsActions.BasicDefinitions.SearchFinanceProgramSetupTest -->
+      <class name="fawry.sofAutomation.testsActions.BasicDefinitions.EditVelocityCriteriaTest">
+        <methods>
+          <include name="closeDriver"/>
+          <include name="EditVelocityCriteria" invocation-numbers="5"/>
+          <include name="loadConfiguration"/>
+          <include name="deleteOldFiles"/>
+          <include name="screenshotOnFailure"/>
+          <include name="setExtent"/>
+          <include name="login"/>
+          <include name="endTest"/>
+        </methods>
+      </class> <!-- fawry.sofAutomation.testsActions.BasicDefinitions.EditVelocityCriteriaTest -->
+    </classes>
+  </test> <!-- MainTest(failed) -->
+</suite> <!-- Failed suite [Suite] -->
