@@ -1,4 +1,4 @@
-package fawry.sofAutomation.testsActions.BasicDefinitions;
+package fawry.sofAutomation.testsActions.basicDefinitions;
 
 import java.util.ArrayList;
 import java.util.Properties;

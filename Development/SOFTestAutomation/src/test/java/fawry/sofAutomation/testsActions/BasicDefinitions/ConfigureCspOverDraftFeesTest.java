@@ -1,4 +1,4 @@
-package fawry.sofAutomation.testsActions.BasicDefinitions;
+package fawry.sofAutomation.testsActions.basicDefinitions;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -41,16 +41,16 @@ public class ConfigureCspOverDraftFeesTest extends BasicTest{
 		test = extent.createTest("Validate ConfigureCspOverDraftFees Functionality");
 
 		SoftAssert sa = new SoftAssert();
-		ConfigreCspOverDraftFeesPage addAccounttrx = new ConfigreCspOverDraftFeesPage(driver);
+		ConfigreCspOverDraftFeesPage overDraftPage = new ConfigreCspOverDraftFeesPage(driver);
 
 		driver.navigate().to(Constants.CSP_OVERDRAFT_FEES_URL);
 
 		//Inserting Data into common Fields
-		addAccounttrx.CommonFields(feesobj);
+		overDraftPage.CommonFields(feesobj);
 		// TAking Action of adding, resetting, confirming or canceling.
-		addAccounttrx.saveOrResetData(feesobj);
+		overDraftPage.saveOrResetData(feesobj);
 		//Collecting Success or fail messages
-		String actual = addAccounttrx.ErrorMessagesAndSuccessMessage(feesobj);
+		String actual = overDraftPage.ErrorMessagesAndSuccessMessage();
 		sa.assertTrue(actual.contains(feesobj.getExpectedMessage()),
 				AssertionErrorMessages.EXPECTED_ACTUAL_EXCEL_WEBAPP + feesobj.getTestCaseId());
 		//assert on DB Only when an account is added Successfully

@@ -39,9 +39,9 @@ public class SearchFinanceTableVerifications {
 				finance=new FinancePojo();
 				List<WebElement> Columns_row = rows_table.get(row).findElements(By.tagName("td"));
 
-				finance.setFinanceprogId( Columns_row.get(1).getText());
-				finance.setAccountNumber( Columns_row.get(2).getText());
-				finance.setSubAccount( Columns_row.get(3).getText());
+				finance.setFinanceprogId( Columns_row.get(0).getText());
+				finance.setAccountNumber( Columns_row.get(1).getText());
+				finance.setSubAccount( Columns_row.get(2).getText());
 
 				allFinanceProgInWebTable.add(finance);
 

@@ -38,7 +38,7 @@ public class AddAccountTest extends BasicTest{
 		LoginPage login = new LoginPage(driver);
 		login.successfulllogin();
 		AddAccountPage addaccount = new AddAccountPage(driver);
-		addaccount.movetoaddaccountpage();
+		addaccount.moveToPage("Accounts", "Add Account",driver);
 
 	}
 
@@ -55,7 +55,7 @@ public class AddAccountTest extends BasicTest{
 	public static void AddAccount(AccountPojo addaccountobj)  
 	{
 		test = extent.createTest("Validate Add Account Functionality");
-		
+
 		SoftAssert sa = new SoftAssert();
 		AddAccountPage addAccount = new AddAccountPage(driver);
 
@@ -135,8 +135,9 @@ public class AddAccountTest extends BasicTest{
 			//validate that account is added successfully in DB
 			AccountsVerification searchAcc = new AccountsVerification();
 			SearchPojo searchAccountCriteria = new SearchPojo();
-			System.out.println(addAccount.newacccode);
-			searchAccountCriteria.setAccountCode(addAccount.newacccode);
+//			System.out.println(addAccount.newacccode);
+			searchAccountCriteria.setAccountCode("554433");
+//			searchAccountCriteria.setAccountCode(addAccount.newacccode);
 			AccountPojo accountInDb = searchAcc.addPrimaryAccount(searchAccountCriteria, "Account").get(0);
 
 			sa.assertTrue(accountInDb.getAccountStatus().equalsIgnoreCase("Active"), AssertionErrorMessages.ACCOUNT_STATUS_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
@@ -180,18 +181,40 @@ public class AddAccountTest extends BasicTest{
 			}
 			for (int i = 0 ; i< accountInDb.getTerminals().size();i++)
 			{
-				System.out.println(addaccountobj.getTerminals().get(0).getSeriallNumber()+"/"+accountInDb.getTerminals().get(0).getSeriallNumber());
+			//	System.out.println(addaccountobj.getTerminals().get(0).getSeriallNumber()+"/"+accountInDb.getTerminals().get(0).getSeriallNumber());
 				sa.assertTrue(addaccountobj.getTerminals().get(0).getSeriallNumber().contains(accountInDb.getTerminals().get(0).getSeriallNumber()), AssertionErrorMessages.TERMINAL_SERIAL_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
-				System.out.println(addaccountobj.getTerminals().get(0).getDescription()+"/"+accountInDb.getTerminals().get(0).getDescription());
+			//	System.out.println(addaccountobj.getTerminals().get(0).getDescription()+"/"+accountInDb.getTerminals().get(0).getDescription());
 				sa.assertTrue(addaccountobj.getTerminals().get(0).getDescription().contains(accountInDb.getTerminals().get(0).getDescription()), AssertionErrorMessages.TERMINAL_DESCRIPTION_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
-				System.out.println(addaccountobj.getTerminals().get(0).getName()+"/"+accountInDb.getTerminals().get(0).getName());
+			//	System.out.println(addaccountobj.getTerminals().get(0).getName()+"/"+accountInDb.getTerminals().get(0).getName());
 				sa.assertTrue(addaccountobj.getTerminals().get(0).getName().contains(accountInDb.getTerminals().get(0).getName()), AssertionErrorMessages.TERMINAL_NAME_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
-				System.out.println(addaccountobj.getTerminals().get(0).getTerminalType()+"/"+accountInDb.getTerminals().get(0).getTerminalType());
+			//	System.out.println(addaccountobj.getTerminals().get(0).getTerminalType()+"/"+accountInDb.getTerminals().get(0).getTerminalType());
 				sa.assertTrue(addaccountobj.getTerminals().get(0).getTerminalType().contains(accountInDb.getTerminals().get(0).getTerminalType()), AssertionErrorMessages.TERMINAL_TYPE_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
-				System.out.println(addaccountobj.getTerminals().get(0).getTerminalstatus()+"/"+accountInDb.getTerminals().get(0).getTerminalstatus());
+			//	System.out.println(addaccountobj.getTerminals().get(0).getTerminalstatus()+"/"+accountInDb.getTerminals().get(0).getTerminalstatus());
 				sa.assertTrue(addaccountobj.getTerminals().get(0).getTerminalstatus().contains(accountInDb.getTerminals().get(0).getTerminalstatus()), AssertionErrorMessages.TERMINAL_STATUS_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
 				sa.assertTrue(accountInDb.getTerminals().get(0).getHashedPin().equals("gdyb21LQTcIANtvYMT7QVQ=="), AssertionErrorMessages.TERMINAL_PIN_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
 
+			}
+			if (!addaccountobj.getProfileid().isEmpty())
+			{
+				AccountPojo profileInDb = searchAcc.accountProfile(searchAccountCriteria).get(0);
+				System.out.println(addaccountobj.getProfileid());
+				System.out.println(profileInDb.getProfileid());
+				sa.assertTrue(addaccountobj.getProfileid().contains(profileInDb.getProfileid()), AssertionErrorMessages.ACCOUNT_PROFILE_CODE_EXCEL_DB + "In TestCase with id of "+addaccountobj.getTestCaseId());
+			}
+			if (addaccountobj.getAddAccountMethod().contains("Mega"))
+			{
+				searchAccountCriteria.setCsp(accountInDb.getCsp());
+				ArrayList<AccountPojo> cspProgramInDb = searchAcc.cspProgramData(searchAccountCriteria);
+				for(int i = 0 ; i< cspProgramInDb.size(); i++)
+				{
+					searchAccountCriteria.setAccountCode(accountInDb.getAccountCode());
+					searchAccountCriteria.setFinanceProgram(cspProgramInDb.get(i).getFinanceProgram());
+					AccountPojo financeProgramInDb = searchAcc.megaAccountData(searchAccountCriteria).get(0);
+					sa.assertTrue(financeProgramInDb.getPrimaryAccountCode().contains(accountInDb.getAccountCode()), AssertionErrorMessages.PRIMARY_ACCOUNT_CODE + "In TestCase with id of "+addaccountobj.getTestCaseId());
+					sa.assertTrue(financeProgramInDb.getDailyLimit().contains(cspProgramInDb.get(i).getDailyLimit()), AssertionErrorMessages.DAILY_LIMIT_FINANCE_MEGA + "In TestCase with id of "+addaccountobj.getTestCaseId());
+					sa.assertTrue(financeProgramInDb.getFinanceProgram().contains(cspProgramInDb.get(i).getFinanceProgram()), AssertionErrorMessages.FINANCE_PROG_MEGA + "In TestCase with id of "+addaccountobj.getTestCaseId());
+
+				}
 			}
 
 		}

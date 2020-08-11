@@ -9,7 +9,7 @@ public class Constants {
 	public static final String DB_USERNAME_KEY="SOF_DB_Username";
 	public static final String DB_PASSWORD_KEY="SOF_DB_Password";
 
-	public static final String LOGIN_USERNAME ="superuser2";
+	public static final String LOGIN_USERNAME ="angiel";
 	public static final String LOGIN_PASSWORD ="1234";
 	
 	public static final String ACTIVE_ACCOUNT_STATUS_ID ="1";
@@ -22,14 +22,8 @@ public class Constants {
 	public static final String SEARCH_FINANCE_PROGRAM_SETUP_URL ="https://10.96.0.65:9443/POSAdminTool/AdminTool/OverDraftSearch.faces";
 	public static final String ADD_VELOCITY_CRITERIA_URL ="https://10.96.0.65:9443/POSAdminTool/AdminTool/AddVelocityCriteria.faces?param=init";
 	public static final String SEARCH_VELOCITY_CRITERIA_URL ="https://10.96.0.65:9443/POSAdminTool/AdminTool/SearchVelocityCriteria.faces";
+	public static final String ADD_CSP_BILL_TYPE_URL ="http://10.96.0.12:1727/POSAdminTool/AdminTool/AddBTC_CSP.faces?param=init";
 
-	
-
-	
-	public static final String ADD_ACCOUNT_BY_LOCATION_ID ="ByLocationID";
-	public static final String ADD_ACCOUNT_BY_REGION_DETAILS ="ByRegionDetails";
-	
-	public static final String STATIC_LOCATION_ID ="11";
 	
 	
 }

@@ -1,4 +1,4 @@
-package fawry.sofAutomation.testsActions.BasicDefinitions;
+package fawry.sofAutomation.testsActions.basicDefinitions;
 
 import java.lang.reflect.Method;
 import java.sql.SQLException;
@@ -35,7 +35,7 @@ public class AddCSPBTCPoolAccountTest  extends BasicTest{
 		AddCspBtcPoolAccountPage page=new AddCspBtcPoolAccountPage(driver);
 		page.navigateToTab("Basic Definitions", "Add CSP Bill Type Pool Account", driver);
 		String actual= page.addCspBtcPoolAccount(CspBtcPoolAccountObj);
-		sa.assertTrue(actual.equalsIgnoreCase(CspBtcPoolAccountObj.getExpectedMessage()), "adsfdgfh");
+		sa.assertTrue(actual.equalsIgnoreCase(CspBtcPoolAccountObj.getExpectedMessage()), "Expected message doesn't match with actual");
 		
 		sa.assertAll();
 	}

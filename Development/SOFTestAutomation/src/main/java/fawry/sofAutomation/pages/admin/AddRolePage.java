@@ -109,10 +109,8 @@ public class AddRolePage extends MainPage {
 		{
 			for(int j=0; j<AddRoleObject.getPermissionsData().size();j++)
 			{
-
 				for(int i=0 ; i<select2.getOptions().size();i++)
 				{
-
 					if(select2.getOptions().get(i).getText().equalsIgnoreCase(AddRoleObject.getPermissionsData().get(j)))
 					{
 						System.out.println(select2.getOptions().get(i).getText());
@@ -123,8 +121,6 @@ public class AddRolePage extends MainPage {
 						Thread.sleep(2000);
 						break;
 					}
-
-
 				}
 			}
 			Thread.sleep(2000);

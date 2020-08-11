@@ -71,6 +71,9 @@ public class EditSubAccountPage {
 	@FindBy(id="EditSubAccount:SubAcctCode")
 	WebElement editedsubaccountcode;
 
+	@FindBy(id="EditSubAccount:POSCode")
+	WebElement primaryAccontCodeTxt;
+	
 	@FindBy(id="addSubAccount:POSCode")
 	WebElement editedcreditaccountcode;
 
@@ -104,7 +107,16 @@ public class EditSubAccountPage {
 				}
 				if(editsubaccountobj.getAction().contains("Save")) 
 				{
+					if(!editsubaccountobj.getPrimaryAccountCode().isEmpty()) 
+					{
+						primaryAccontCodeTxt.clear();
+						primaryAccontCodeTxt.sendKeys(editsubaccountobj.getPrimaryAccountCode());
+
+					}
+					if(!editsubaccountobj.getAccountStatus().isEmpty())
+					{
 					new Select(editsubaccaccountstatuslist).selectByVisibleText(editsubaccountobj.getAccountStatus());
+					}
 					editsubaccsavebtn.click();
 					if (driver.findElements(By.id("EditSubAccount:CorrectMessage")).size() != 0){
 					successmessage = editsubaccaccountsuccessmsg.getText();

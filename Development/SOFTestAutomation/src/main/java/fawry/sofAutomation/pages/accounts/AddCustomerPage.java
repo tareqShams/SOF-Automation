@@ -11,7 +11,6 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
-import fawry.sofAutomation.pojos.accounts.AccountPojo;
 import fawry.sofAutomation.pojos.accounts.CustomerPojo;
 
 public class AddCustomerPage {

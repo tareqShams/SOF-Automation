@@ -9,7 +9,7 @@ public class Constants {
 	public static final String DB_USERNAME_KEY="SOF_DB_Username";
 	public static final String DB_PASSWORD_KEY="SOF_DB_Password";
 
-	public static final String LOGIN_USERNAME ="superuser2";
+	public static final String LOGIN_USERNAME ="angiel";
 	public static final String LOGIN_PASSWORD ="1234";
 	
 	public static final String ACTIVE_ACCOUNT_STATUS_ID ="1";

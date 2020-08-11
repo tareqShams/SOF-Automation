@@ -35,12 +35,14 @@ public class SubAccountsVefication {
 					",a.PRIMARY_ACCT_ID primaryaccountid\r\n" + 
 					",actt.NAME_PRIMARY_LANG as accounttype\r\n" + 
 					",acn.NAME_PRIMARY_LANG as accountnature\r\n" + 
+					",acntt.code as primaryAcctCode\r\n" + 
 					"from POS_SOF.ACCOUNTS a\r\n" + 
 					"left JOIN POS_SOF.terminal_status_lookup ts on a.TERMINAL_STATUS_ID = ts.id \r\n" + 
 					"left JOIN POS_SOF.currency c on a.CURRENCY_ID = c.ID\r\n" + 
 					"left Join POS_SOF.account_types actt on a.ACCOUNT_TYPE_ID = actt.id\r\n" + 
 					"left Join POS_SOF.account_nature_lookup acn on a.ACCOUNT_NATURE_ID = acn.id\r\n" + 
-					"where a.code is not null \r\n" +  
+					"left Join POS_SOF.ACCOUNTS acntt on a.PRIMARY_ACCT_ID = acntt.id\r\n" + 
+					"where a.code is not null  \r\n" +  
 					"AND a.code = '"+srchacc.getAccountCode()+"'\r\n");
 			if(flag.equalsIgnoreCase("Add"))
 			{
@@ -67,7 +69,7 @@ public class SubAccountsVefication {
 				addaccounts.setCreditLimit(resultOfSearchaccount.getString("creditlimit")==null?"":resultOfSearchaccount.getString("creditlimit"));
 				addaccounts.setDailyLimit(resultOfSearchaccount.getString("dailylimit")==null?"":resultOfSearchaccount.getString("dailylimit"));
 				addaccounts.setBankTerminal(resultOfSearchaccount.getString("bankterminalid")==null?"":resultOfSearchaccount.getString("bankterminalid"));
-				addaccounts.setPrimaryAccountCode(resultOfSearchaccount.getString("primaryaccountid")==null?"":resultOfSearchaccount.getString("primaryaccountid"));
+				addaccounts.setPrimaryAccountCode(resultOfSearchaccount.getString("primaryAcctCode")==null?"":resultOfSearchaccount.getString("primaryAcctCode"));
 				addaccounts.setAccountType(resultOfSearchaccount.getString("accounttype")==null?"":resultOfSearchaccount.getString("accounttype"));
 				addaccounts.setAccountNature(resultOfSearchaccount.getString("accountnature")==null?"":resultOfSearchaccount.getString("accountnature"));
 

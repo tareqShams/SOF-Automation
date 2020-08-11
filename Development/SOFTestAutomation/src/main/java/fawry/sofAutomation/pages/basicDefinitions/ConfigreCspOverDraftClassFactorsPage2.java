@@ -1,4 +1,4 @@
-package fawry.sofAutomation.pages.basicDefinitions;
+/*package fawry.sofAutomation.pages.basicDefinitions;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -420,7 +420,7 @@ public class ConfigreCspOverDraftClassFactorsPage2 {
 		action.perform();
 	}
 
-	/*
+	
 	 *  //change value of a cell
     public String isnullvalue(String value)
     {
@@ -430,6 +430,7 @@ public class ConfigreCspOverDraftClassFactorsPage2 {
            }
            return value;
     }
-	 */
+	 
 }
 
+*/

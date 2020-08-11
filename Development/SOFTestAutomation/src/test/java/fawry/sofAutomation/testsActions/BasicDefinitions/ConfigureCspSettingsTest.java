@@ -1,4 +1,4 @@
-package fawry.sofAutomation.testsActions.BasicDefinitions;
+package fawry.sofAutomation.testsActions.basicDefinitions;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -45,60 +45,68 @@ public class ConfigureCspSettingsTest extends BasicTest{
 		ConfigreCspSettingsPage settings = new ConfigreCspSettingsPage(driver);
 
 		driver.navigate().to(Constants.CSP_SETTINGS_URL);
-
 		//Inserting Data into common Fields
-		settings.CommonFields(settingsobj);
-		// TAking Action of adding, resetting, confirming or canceling.
-		settings.saveOrResetData(settingsobj);
-		//Collecting Success or fail messages
-		String actual = settings.ErrorMessagesAndSuccessMessage(settingsobj);
-		System.out.println(actual);
-		sa.assertTrue(actual.contains(settingsobj.getExpectedMessage()),
-				AssertionErrorMessages.EXPECTED_ACTUAL_EXCEL_WEBAPP + settingsobj.getTestCaseId());
+		try {
+			settings.CommonFields(settingsobj);
+			// TAking Action of adding, resetting, confirming or canceling.
 
-		//assert on DB when changes are made successfully
-		if (settingsobj.getAction().contains("Success"))
-		{
-			String x = "";
-			SearchVefication search = new SearchVefication();
-			SearchPojo searchobj = new SearchPojo();
-			searchobj.setCsp(settingsobj.getCsp());
+			settings.saveOrResetData(settingsobj);
 
-			// Assert on Debit values
-			searchobj.setAccountType("1");
-			ArrayList<CSPFeesPojo> debitInDb = search.searchCspDebitCreditSettings(searchobj, "");
-			ArrayList<CSPFeesPojo> debit = settings.checkClickedDebitButtons(settingsobj);
+			//Collecting Success or fail messages
+			String actual = settings.ErrorMessagesAndSuccessMessage(settingsobj);
+			System.out.println(actual);
+			sa.assertTrue(actual.contains(settingsobj.getExpectedMessage()),
+					AssertionErrorMessages.EXPECTED_ACTUAL_EXCEL_WEBAPP + settingsobj.getTestCaseId());
 
-			for (int i = 0; i < debitInDb.size(); i++) 
+			//assert on DB when changes are made successfully
+			if (settingsobj.getAction().contains("Success"))
 			{
-				if(!debitInDb.contains(debit.get(i))) {
-					x = "true";
+				String x = "";
+				SearchVefication search = new SearchVefication();
+				SearchPojo searchobj = new SearchPojo();
+				searchobj.setCsp(settingsobj.getCsp());
+
+				// Assert on Debit values
+				searchobj.setAccountType("1");
+				ArrayList<CSPFeesPojo> debitInDb = search.searchCspDebitCreditSettings(searchobj, "");
+				ArrayList<CSPFeesPojo> debit = settings.checkClickedDebitButtons(settingsobj);
+
+				for (int i = 0; i < debitInDb.size(); i++) 
+				{
+					if(!debitInDb.contains(debit.get(i))) {
+						x = "true";
+					}
+					sa.assertTrue(x.equalsIgnoreCase("true"), AssertionErrorMessages.DEBIT_NATURE_TABLE_DB+ "In test Case With ID of" + settingsobj.getTestCaseId());
 				}
-				sa.assertTrue(x.equalsIgnoreCase("true"), AssertionErrorMessages.DEBIT_NATURE_TABLE_DB+ "In test Case With ID of" + settingsobj.getTestCaseId());
+				// Assert on Credit values
+				searchobj.setAccountType("2");
+				ArrayList<CSPFeesPojo> creditInDb = search.searchCspDebitCreditSettings(searchobj, "");
+				ArrayList<CSPFeesPojo> credit = settings.checkClickedCredititButtons();
+
+				for (int i = 0; i < creditInDb.size(); i++) 
+				{
+					if(!creditInDb.contains(credit.get(i))) {
+						x = "true";
+					}
+					sa.assertTrue(x.equalsIgnoreCase("true"), AssertionErrorMessages.CREDIT_NATURE_TABLE_DB+ "In test Case With ID of" + settingsobj.getTestCaseId());
+				}
+				// Assert on Terminal types values
+				ArrayList<CSPFeesPojo> terminaInDb = search.searchCspTerminalTypesSettings(searchobj, "");
+				ArrayList<CSPFeesPojo> term = settings.checkClickedTerminalButtons();
+
+				for (int i = 0; i < terminaInDb.size(); i++) 
+				{
+					if(!terminaInDb.contains(term.get(i))) {
+						x = "true";
+					}
+					sa.assertTrue(x.equalsIgnoreCase("true"), AssertionErrorMessages.TERMINAL_TYPES_TABLE_DB+ "In test Case With ID of" + settingsobj.getTestCaseId());
+				}	
 			}
-			// Assert on Credit values
-			searchobj.setAccountType("2");
-			ArrayList<CSPFeesPojo> creditInDb = search.searchCspDebitCreditSettings(searchobj, "");
-			ArrayList<CSPFeesPojo> credit = settings.checkClickedCredititButtons();
 
-			for (int i = 0; i < creditInDb.size(); i++) 
-			{
-				if(!creditInDb.contains(credit.get(i))) {
-					x = "true";
-				}
-				sa.assertTrue(x.equalsIgnoreCase("true"), AssertionErrorMessages.CREDIT_NATURE_TABLE_DB+ "In test Case With ID of" + settingsobj.getTestCaseId());
-			}
-			// Assert on Terminal types values
-			ArrayList<CSPFeesPojo> terminaInDb = search.searchCspTerminalTypesSettings(searchobj, "");
-			ArrayList<CSPFeesPojo> term = settings.checkClickedTerminalButtons();
-
-			for (int i = 0; i < terminaInDb.size(); i++) 
-			{
-				if(!terminaInDb.contains(term.get(i))) {
-					x = "true";
-				}
-				sa.assertTrue(x.equalsIgnoreCase("true"), AssertionErrorMessages.TERMINAL_TYPES_TABLE_DB+ "In test Case With ID of" + settingsobj.getTestCaseId());
-			}	
+		}
+		catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		sa.assertAll();
 

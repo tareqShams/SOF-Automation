@@ -44,6 +44,11 @@ public class FinanceProgramsVerifications {
 			{
 				myQuary.add(" fps.PRIMARY_ACCOUNT_ID ='" + srchacctrx.getAccountNumber() + "'\r\n");
 			}
+			System.out.println(srchacctrx.getFinanceProgramStatus());
+			if(srchacctrx.getFinanceProgramStatus() != "" && srchacctrx.getFinanceProgramStatus() != null)
+			{
+				myQuary.add(" odssl.NAME_PRIMARY_LANG = '" + srchacctrx.getFinanceProgramStatus() + "'\r\n");
+			}
 			
 			/*System.out.println(flag);
 			if(flag.equalsIgnoreCase("Add"))

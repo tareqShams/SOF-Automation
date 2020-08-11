@@ -22,25 +22,43 @@ public class AddCspBtcPoolAccountPage  extends MainPage{
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(id="addCSP:cspList")
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:cspList")
 	WebElement csp;
 
-	@FindBy(id="addCSP:btcList")
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:btcList")
 	WebElement btc;
 
-	@FindBy(id="addCSP:textPoolAccount")
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:textPoolAccount")
 	WebElement poolAccount;
+	
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:oneAction")
+	WebElement oneActionBtn;
+	
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:actionSynchronized")
+	WebElement actionSynchBtn;
 
-	@FindBy(id="addCSP:saveBtn")
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:sameAction")
+	WebElement sameActionBtn;
+	
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:debitOrCredit:0")
+	WebElement poolActionBothBtn;
+	
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:debitOrCredit:1")
+	WebElement poolActionDebitBtn;
+	
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:debitOrCredit:2")
+	WebElement poolActionCreditBtn;
+	
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:saveBtn")
 	WebElement save;
 
-	@FindBy(id="addCSP:resetBtn")
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:resetBtn")
 	WebElement reset;
 
 	@FindBy(className="alert")
 	List<WebElement>  correctMassage;
 
-	@FindBy(id="addCSP:errorMessage")
+	@FindBy(id="AddCSP_BTC_POOL_ACCOUNT:errorMessage")
 	List<WebElement> errorMassage;
 
 	@FindBy(className="fieldError")
@@ -51,29 +69,21 @@ public class AddCspBtcPoolAccountPage  extends MainPage{
 	{
 		Select select = new Select( csp);
 		Select select1 = new Select( btc);
-
+		
 		Actions builder = new Actions(driver);
 		Actions builder2 = new Actions(driver);
-
+		
 		for(int i=0 ; i<select.getOptions().size();i++)
 		{
-
 			if(select.getOptions().get(i).getText().contains(CspBtcPoolAccountObj.getCsp()))
 			{
 				builder.keyDown(Keys.CONTROL).click(select.getOptions().get(i));
 				builder.build().perform(); 
 				break;
 			}
-
 		}
-
-
-
-
-
 		for(int i=0 ; i<select1.getOptions().size();i++)
 		{
-
 			if(select1.getOptions().get(i).getText().contains(CspBtcPoolAccountObj.getBillTypeCode()))
 			{
 				builder2.keyDown(Keys.CONTROL).click(select1.getOptions().get(i)).keyUp(Keys.CONTROL);
@@ -81,17 +91,40 @@ public class AddCspBtcPoolAccountPage  extends MainPage{
 				break;
 			}
 		}
-		
-		
-		
-		
 		Thread.sleep(2000);
 		System.out.println(CspBtcPoolAccountObj.getPoolAccount());
 		poolAccount.clear();
 		poolAccount.sendKeys(CspBtcPoolAccountObj.getPoolAccount());
+		if(poolAccount.getText().isEmpty())
+		{
 		poolAccount.sendKeys(CspBtcPoolAccountObj.getPoolAccount());
-
-		if(CspBtcPoolAccountObj.getFlag().equalsIgnoreCase("save"))
+		}
+		if(CspBtcPoolAccountObj.getFlag().contains("One"))
+		{
+			oneActionBtn.click();
+		}
+		if(CspBtcPoolAccountObj.getFlag().contains("Synch"))
+		{
+			actionSynchBtn.click();
+		}
+		if(CspBtcPoolAccountObj.getFlag().contains("Same"))
+		{
+			sameActionBtn.click();
+		}
+		if(CspBtcPoolAccountObj.getFlag().contains("Both"))
+		{
+			poolActionBothBtn.click();
+		}
+		else if(CspBtcPoolAccountObj.getFlag().contains("Debit"))
+		{
+			poolActionDebitBtn.click();
+		}
+		else if(CspBtcPoolAccountObj.getFlag().contains("Credit"))
+		{
+			poolActionCreditBtn.click();
+		}
+		
+		if(CspBtcPoolAccountObj.getFlag().contains("Save"))
 		{
 			save.click();
 			String msg;
@@ -117,7 +150,7 @@ public class AddCspBtcPoolAccountPage  extends MainPage{
 				return correctMassage.get(0).getText().toString();
 			}	
 		}
-		else if (CspBtcPoolAccountObj.getFlag().equalsIgnoreCase("reset")) {
+		else if (CspBtcPoolAccountObj.getFlag().contains("Reset")) {
 			reset.click();
 			return "reset";
 		}

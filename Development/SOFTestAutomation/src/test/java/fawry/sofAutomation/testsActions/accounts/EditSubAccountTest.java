@@ -11,10 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 import fawry.sofAutomation.constants.accounts.AssertionErrorMessages;
 import fawry.sofAutomation.constants.accounts.Constants;
-import fawry.sofAutomation.dbVerification.accounts.SearchVefication;
 import fawry.sofAutomation.dbVerification.accounts.SubAccountsVefication;
-import fawry.sofAutomation.pages.accounts.AddAccountPage;
-import fawry.sofAutomation.pages.accounts.AddSubAccountPage;
 import fawry.sofAutomation.pages.accounts.EditSubAccountPage;
 import fawry.sofAutomation.pages.login.LoginPage;
 import fawry.sofAutomation.pojos.accounts.AccountPojo;
@@ -43,13 +40,6 @@ public class EditSubAccountTest extends BasicTest{
 
 		SoftAssert sa = new SoftAssert();
 		
-		/*AddAccountPage addacc = new AddAccountPage(driver);
-		addacc.addStaticAccount(editsubaccountobj);
-		
-		AddSubAccountPage addsub = new AddSubAccountPage(driver);
-		addsub.addFinanceSubAccountForedititing(editsubaccountobj);
-		addsub.addnonfinanceSubAccountForedititing(editsubaccountobj);
-		*/
 		EditSubAccountPage editsubaccount = new EditSubAccountPage(driver);
 		String actual = editsubaccount.editSubAccount(editsubaccountobj);
 		System.out.println(actual);
@@ -67,20 +57,16 @@ public class EditSubAccountTest extends BasicTest{
 
 		
 			System.out.println(editsubaccountobj.getAction());
-/*			if(editsubaccountobj.getAction().contains("Delete"))
-			{
-				AccountPojo accountInDb = searchAcc.addSubAccount(searchAccountCriteria, "Edit").get(0);
-				System.out.println(accountInDb.getAccountStatus());
-				sa.assertTrue(accountInDb.getAccountStatus().contains(editsubaccountobj.getAction()), 
-						AssertionErrorMessages.ACCOUNT_STATUS_EXCEL_DB+"In Test Case With Id of "+editsubaccountobj.getTestCaseId());
-			}
-			else {*/
+
 				AccountPojo accountInDb = searchAcc.addSubAccount(searchAccountCriteria, "Add").get(0);
 				System.out.println(accountInDb.getAccountStatus());
 				System.out.println(editsubaccountobj.getAccountStatus());
 			sa.assertTrue(accountInDb.getAccountStatus().contains(editsubaccountobj.getAccountStatus()), 
 					AssertionErrorMessages.ACCOUNT_STATUS_EXCEL_DB+"In Test Case With Id of "+editsubaccountobj.getTestCaseId());
-			//}
+			if(!editsubaccountobj.getPrimaryAccountCode().isEmpty()) {
+			sa.assertTrue(accountInDb.getPrimaryAccountCode().contains(editsubaccountobj.getPrimaryAccountCode()), 
+					AssertionErrorMessages.PRIMARY_ACCOUNT_CODE+"In Test Case With Id of "+editsubaccountobj.getTestCaseId());
+			}
 		}
 		sa.assertAll();
 
@@ -110,9 +96,11 @@ public class EditSubAccountTest extends BasicTest{
 
 			editSubAccountTestData.setAccountCode(resultArray.get(i).get(0).toString());
 			editSubAccountTestData.setAccountStatus(resultArray.get(i).get(1).toString());
-			editSubAccountTestData.setTestCaseId(resultArray.get(i).get(2).toString());
-			editSubAccountTestData.setAction(resultArray.get(i).get(3).toString());
-			editSubAccountTestData.setExpectedMessage(resultArray.get(i).get(4).toString());
+			editSubAccountTestData.setPrimaryAccountCode(resultArray.get(i).get(2).toString());
+
+			editSubAccountTestData.setTestCaseId(resultArray.get(i).get(3).toString());
+			editSubAccountTestData.setAction(resultArray.get(i).get(4).toString());
+			editSubAccountTestData.setExpectedMessage(resultArray.get(i).get(5).toString());
 
 
 			result[i][0] = editSubAccountTestData;

@@ -5,23 +5,20 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import javax.net.ssl.HostnameVerifier;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
+import fawry.sofAutomation.constants.accounts.Constants;
+import fawry.sofAutomation.pages.main.MainPage;
 import fawry.sofAutomation.pojos.accounts.AccountPojo;
-import fawry.sofAutomation.pojos.accounts.CustomerPojo;
 
-public class AddAccountPage {
+public class AddAccountPage extends MainPage{
 	WebDriver driver;
-	public AddAccountPage(WebDriver driver)
-	{
+	public AddAccountPage(WebDriver driver)	{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -106,12 +103,18 @@ public class AddAccountPage {
 	@FindBy(id="addPOS:officialTypeList")
 	WebElement officialtypelist;
 
+	@FindBy(id="addPOS:currencyList")
+	WebElement currencyLst;
+
 	@FindBy(id="addPOS:officialValue")
 	WebElement officialnumbertxt;
 
 	@FindBy(id="addPOS:profileDataList")
 	WebElement profileidlist;
 
+	@FindBy(id="addPOS:megaAccount234")
+	WebElement setupProgramAccountBtn;
+	
 	@FindBy(id="addPOS:button2")
 	WebElement resetbtn;
 
@@ -120,7 +123,7 @@ public class AddAccountPage {
 
 	@FindBy(id="addPOS:RegionCode")
 	WebElement existingregioncodemsg;
-	
+
 	@FindBy(id="AddAccountSuccess:AccountCode")
 	WebElement newaccountcode;
 
@@ -206,20 +209,16 @@ public class AddAccountPage {
 			}
 
 		}
+		if(!addaccountobj.getCurrency().isEmpty())
+		{
+			new Select(currencyLst).selectByVisibleText(addaccountobj.getCurrency());
 
+		}
 		dailylimittxt.clear();
 		dailylimittxt.sendKeys(addaccountobj.getDailyLimit());
 		creditlimittxt.clear();
 		creditlimittxt.sendKeys(addaccountobj.getCreditLimit());
 
-		if (!addaccountobj.getAccountClass().isEmpty())
-		{
-			new Select(accountclassslist).selectByVisibleText(addaccountobj.getAccountClass());
-		}
-		if(!addaccountobj.getAccountGroup().isEmpty())
-		{
-			new Select(accountgrouplist).selectByVisibleText(addaccountobj.getAccountGroup());
-		}
 		if(!addaccountobj.getOfficialType().isEmpty())
 		{
 			new Select(officialtypelist).selectByVisibleText(addaccountobj.getOfficialType());
@@ -233,6 +232,10 @@ public class AddAccountPage {
 		if (!addaccountobj.getProfileid().isEmpty())
 		{			
 			new Select(profileidlist).selectByVisibleText(addaccountobj.getProfileid());
+		}
+		if(addaccountobj.getAddAccountMethod().contains("Mega"))
+		{
+			setupProgramAccountBtn.click();
 		}
 	}
 
@@ -280,10 +283,10 @@ public class AddAccountPage {
 		addcustomerfromaddaccountlink.click();
 		// Setting the output from adding new customer into spare field to be validated with expected
 		addaccountobj.setSparefield6(addCustomer.AddNewCustomer(addaccountobj.getCustomer().get(0)));
-		
+
 		if (!addaccountobj.getCustomer().get(0).getCustomerprofilecode().isEmpty() || !addaccountobj.getCustomer().get(0).getCustomerprofilecode().equalsIgnoreCase("1"))
 		{
-		addaccountobj.setCutomerProfile(addaccountobj.getCustomer().get(0).getCustomerprofilecode());
+			addaccountobj.setCutomerProfile(addaccountobj.getCustomer().get(0).getCustomerprofilecode());
 		}
 	}
 
@@ -311,34 +314,22 @@ public class AddAccountPage {
 
 
 
-	public void movetoaddaccountpage () {
-
-		WebElement hover = driver.findElement(By.linkText("Accounts"));
-		Actions action = new Actions(driver);
-		action.moveToElement(hover).perform();
-		WebElement selecthover = driver.findElement(By.linkText("Add Account"));
-		action.moveToElement(selecthover);
-		action.click();
-		action.perform();
-
-	}
-
 	public void addStaticAccount(AccountPojo addaccountobj)
 	{
-		movetoaddaccountpage();
+		driver.navigate().to(Constants.ADD_ACCOUNT_URL);
 		selectbylocationidbtn.click();
-		locationidtxt.sendKeys("11");
+		locationidtxt.sendKeys(Constants.STATIC_LOCATION_ID);
 
 		csplist.click();
 		new Select(csplist).selectByVisibleText("FAWRYRTL");
 
 		customerprofiletxt.clear();
-		customerprofiletxt.sendKeys("66547");
+		customerprofiletxt.sendKeys(Constants.STATIC_CUSTOMER_PROFILE);
 
 
 		usagelist.click();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		new Select(usagelist).selectByVisibleText("Collection");
+		new Select(usagelist).selectByVisibleText(Constants.STATIC_USAGE);
 
 
 		descriptiontxt.clear();

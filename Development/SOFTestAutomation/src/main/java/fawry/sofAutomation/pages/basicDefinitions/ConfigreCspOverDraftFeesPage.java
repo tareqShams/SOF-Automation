@@ -101,7 +101,7 @@ public class ConfigreCspOverDraftFeesPage {
 	}
 
 	// Collecting Success messages and error Messages
-	public String ErrorMessagesAndSuccessMessage(CSPFeesPojo feesobj) 
+	public String ErrorMessagesAndSuccessMessage() 
 	{
 		actual = "";
 		if (driver.findElements(By.className("fieldError")).size() != 0  )

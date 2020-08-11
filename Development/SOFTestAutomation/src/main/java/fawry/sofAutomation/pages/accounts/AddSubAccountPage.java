@@ -11,7 +11,6 @@ import org.openqa.selenium.support.ui.Select;
 
 import fawry.sofAutomation.constants.accounts.Constants;
 import fawry.sofAutomation.pojos.accounts.AccountPojo;
-import fawry.sofAutomation.pojos.financialActivities.AccountTrxPojo;
 
 public class AddSubAccountPage {
 	WebDriver driver;

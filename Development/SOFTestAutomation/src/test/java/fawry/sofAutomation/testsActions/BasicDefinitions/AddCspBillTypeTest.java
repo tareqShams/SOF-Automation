@@ -1,4 +1,4 @@
-package fawry.sofAutomation.testsActions.BasicDefinitions;
+package fawry.sofAutomation.testsActions.basicDefinitions;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -23,6 +23,7 @@ public class AddCspBillTypeTest extends BasicTest {
 
 		LoginPage login=new LoginPage(driver);
 		login.loginadd();
+		login.navigateToTab("Basic Definitions", "Add CSP Bill Type", driver);
 	}  
 
 
@@ -34,7 +35,7 @@ public class AddCspBillTypeTest extends BasicTest {
 		CspBillTypeVerifications searchCspBillTypeInDB=new CspBillTypeVerifications();
 		SoftAssert sa=new SoftAssert();
 		AddCspBillTypePage page=new  AddCspBillTypePage(driver);
-		page.navigateToTab("Basic Definitions", "Add CSP Bill Type", driver);
+		
 		String actual=page.addCspBillType(addCspBillTypeObject);
 		if(addCspBillTypeObject.getExpectedMessage().equalsIgnoreCase(actual))
 		{

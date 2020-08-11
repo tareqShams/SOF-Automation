@@ -81,7 +81,6 @@ public class AddRoleTest extends BasicTest{
 				else
 				{
 					sa.fail(" size of user added to group does not equal the size of users added in DB");
-
 				}		
 				// Check that size of user added to group equals the size of users added in DB
 				if(accountInDb.getPermissionsData().size()==AddRoleObject.getPermissionsData().size())
@@ -96,7 +95,6 @@ public class AddRoleTest extends BasicTest{
 				else
 				{
 					sa.fail(" size of user added to group does not equal the size of users added in DB");
-
 				}	
 
 			}
@@ -180,11 +178,7 @@ public class AddRoleTest extends BasicTest{
 			}
 			AddRoleTestData.setPermissionsData(str2);
 			result[i][0] = AddRoleTestData;
-
-
 		}
-
-
 		return result;
 	}
 

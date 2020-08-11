@@ -1,4 +1,5 @@
-package fawry.sofAutomation.testsActions.BasicDefinitions;
+package fawry.sofAutomation.testsActions.basicDefinitions;
+/*package fawry.sofAutomation.testsActions.BasicDefinitions;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -69,7 +70,7 @@ public class ConfigureCspOverDraftClassFactorsTest2 extends BasicTest{
 		sa.assertTrue(actual.contains(feesobj.getExpectedMessage()),
 				AssertionErrorMessages.EXPECTED_ACTUAL_EXCEL_WEBAPP + feesobj.getTestCaseId());
 		//assert on DB Only when an account is added Successfully
-		/*		if (feesobj.getAction().contains("Success"))
+				if (feesobj.getAction().contains("Success"))
 		{
 
 			//Get account Balance before transaction
@@ -81,7 +82,7 @@ public class ConfigureCspOverDraftClassFactorsTest2 extends BasicTest{
 			sa.assertTrue(accountInDb.getAmount().equalsIgnoreCase(addaccounttrxobj.getAmount()),
 					AssertionErrorMessages.ACCOUNT_AMOUNT_DB_EXCEL+" in test case with id Of " + addaccounttrxobj.getTestCaseId());
 
-		}*/
+		}
 		sa.assertAll();
 
 	}
@@ -191,3 +192,4 @@ public class ConfigureCspOverDraftClassFactorsTest2 extends BasicTest{
 	}
 
 }
+*/

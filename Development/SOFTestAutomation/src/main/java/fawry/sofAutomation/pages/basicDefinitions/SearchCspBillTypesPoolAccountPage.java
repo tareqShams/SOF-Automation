@@ -70,8 +70,6 @@ public class SearchCspBillTypesPoolAccountPage  extends MainPage{
 		List<WebElement> Columns_row = rows_table.get(0).findElements(By.tagName("td"));
 		Columns_row.get(0).click();
 	
-
-	
 	}
 	public boolean reset()
 	{

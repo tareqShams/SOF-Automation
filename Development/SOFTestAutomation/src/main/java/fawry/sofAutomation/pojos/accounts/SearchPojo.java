@@ -5,25 +5,59 @@ import fawry.sofAutomation.pojos.main.MainPOJO;
 public class SearchPojo extends MainPOJO {
 
 	public String accountcode;
-	public String merchantcode;
-	public String officialnumber;
-	public String officialtype;
-	public String accountgroup;
-	public String status;
-	public String csp;
-	public String terminalcode;
-	public String terminaltype;
-	public String serialnumber;
-	public String saprenormaltype;
-	public String iscredit;
-	public String isterminal;
-	public String bankterminal;
-	public String accounttype;
-	public String accountstatusid;
-	public String terminalstatusid;
+	private String merchantcode;
+	private String officialnumber;
+	private String officialtype;
+	private String accountgroup;
+	private String status;
+	private String csp;
+	private String terminalcode;
+	private String terminaltype;
+	private String serialnumber;
+	private String saprenormaltype;
+	private String iscredit;
+	private String isterminal;
+	private String bankterminal;
+	private String accounttype;
+	private String accountstatusid;
+	private String terminalstatusid;	
+	private String financeProgram;
+	private String name;
+	private String description;
+	private String currency;
+	private String usage;
+	
 
-	public String action;
-
+	public String getUsage() {
+		return usage;
+	}
+	public void setUsage(String usage) {
+		this.usage = usage;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getCurrency() {
+		return currency;
+	}
+	public void setCurrency(String currency) {
+		this.currency = currency;
+	}
+	public String getFinanceProgram() {
+		return financeProgram;
+	}
+	public void setFinanceProgram(String financeProgram) {
+		this.financeProgram = financeProgram;
+	}
 	public String getAccountCode() {
 		return accountcode;
 	}
@@ -113,12 +147,6 @@ public class SearchPojo extends MainPOJO {
 	}
 	public void setAccountType(String accounttype) {
 		this.accounttype = accounttype;
-	}
-	public String getAction() {
-		return action;
-	}
-	public void setAction(String action) {
-		this.action = action;
 	}
 	public String getAccountstatusid() {
 		return accountstatusid;

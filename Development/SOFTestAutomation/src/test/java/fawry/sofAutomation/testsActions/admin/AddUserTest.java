@@ -53,7 +53,6 @@ public class AddUserTest  extends BasicTest{
 				// assert that when Click  Reset ALL Field  
 				sa.assertTrue(user.isreset(),"Error In Reset Functionality In Add-User-Page");
 			}
-
 			if(actual.equalsIgnoreCase("User Added Successfully"))
 			{
 				SearchUserVerifications searchUser = new SearchUserVerifications();
@@ -102,13 +101,9 @@ public class AddUserTest  extends BasicTest{
 			sa.assertAll();
 		} catch (InterruptedException e) {
 			log.error(e.getClass().getSimpleName());	
-
-
 		} catch (Exception e) {
 			log.error(e.getClass().getSimpleName());	
-
 		}
-
 	}
 
 

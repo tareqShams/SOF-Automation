@@ -105,12 +105,25 @@ public class AccountsVerification {
 			System.out.println(srchacc.getAccountType());
 			if (srchacc.getAccountType() != "" && srchacc.getAccountType() != null)
 			{
-				myQuary.add(" actt.NAME_PRIMARY_LANG like '" + srchacc.getAccountType() + "%' \r\n");
+				myQuary.add(" actt.NAME_PRIMARY_LANG like '%" + srchacc.getAccountType() + "%' \r\n");
 			}
 			System.out.println(srchacc.getTerminalCode());
 			if (srchacc.getTerminalCode() != "" && srchacc.getTerminalCode() != null)
 			{
 				myQuary.add(" t.code = '" + srchacc.getTerminalCode() + "' \r\n");
+			}
+			//
+			if (srchacc.getUsage() != "" && srchacc.getUsage() != null)
+			{
+				myQuary.add(" u.NAME_PRIMARY_LANG = '" + srchacc.getUsage() + "' \r\n");
+			}
+			if (srchacc.getName() != "" && srchacc.getName() != null)
+			{
+				myQuary.add(" a.NAME_PRIMARY_LANG ='" + srchacc.getName() + "' \r\n");
+			}
+			if (srchacc.getDescription() != "" && srchacc.getDescription() != null)
+			{
+				myQuary.add(" a.DESCRIPTION_PRIMARY_LANG like '%" + srchacc.getDescription() + "%' \r\n");
 			}
 			System.out.println(srchacc.getIsCredit());
 			if (srchacc.getIsCredit() == null)
@@ -227,44 +240,55 @@ public class AccountsVerification {
 
 
 			resultOfSearchaccount.next();
-			
-				AccountPojo addaccounts = new AccountPojo();
-				addaccounts.setAccountCode(resultOfSearchaccount.getString("ACCOUNTCODE")==null?"":resultOfSearchaccount.getString("ACCOUNTCODE"));
-				addaccounts.setAccountStatus(resultOfSearchaccount.getString("accountstatus")==null?"":resultOfSearchaccount.getString("accountstatus"));
-				addaccounts.setUsage(resultOfSearchaccount.getString("USAGE")==null?"":resultOfSearchaccount.getString("USAGE"));
-				addaccounts.setCurrency(resultOfSearchaccount.getString("CURRENCY")==null?"":resultOfSearchaccount.getString("CURRENCY"));
-				addaccounts.setAccountClass(resultOfSearchaccount.getString("ACCOUNTCLASS")==null?"":resultOfSearchaccount.getString("ACCOUNTCLASS"));
-				addaccounts.setAccountGroup(resultOfSearchaccount.getString("ACCOUNTGROUP")==null?"":resultOfSearchaccount.getString("ACCOUNTGROUP"));
-				addaccounts.setOfficialType(resultOfSearchaccount.getString("OFFICIALTYPE")==null?"":resultOfSearchaccount.getString("OFFICIALTYPE"));
-				addaccounts.setDescription(resultOfSearchaccount.getString("DESCRIPTION")==null?"":resultOfSearchaccount.getString("DESCRIPTION"));
-				addaccounts.setBalance(resultOfSearchaccount.getString("BALANCE")==null?"":resultOfSearchaccount.getString("BALANCE"));
-				addaccounts.setCreditLimit(resultOfSearchaccount.getString("CREDITLIMIT")==null?"":resultOfSearchaccount.getString("CREDITLIMIT"));
-				addaccounts.setDailyLimit(resultOfSearchaccount.getString("DAILYLIMIT")==null?"":resultOfSearchaccount.getString("DAILYLIMIT"));
-				addaccounts.setOfficialnumber(resultOfSearchaccount.getString("OFFICIALTYPENUMBER")==null?"":resultOfSearchaccount.getString("OFFICIALTYPENUMBER"));
-				addaccounts.setCsp(resultOfSearchaccount.getString("CUSTOMERCSP")==null?"":resultOfSearchaccount.getString("CUSTOMERCSP"));
-				addaccounts.setAccountType(resultOfSearchaccount.getString("ACCOUNTTYPE")==null?"":resultOfSearchaccount.getString("ACCOUNTTYPE"));
 
-				ArrayList<CustomerPojo> customers =  new ArrayList<CustomerPojo>();
-				CustomerPojo customer = new CustomerPojo();
-				customer.setCustomercatagory(resultOfSearchaccount.getString("CUSTOMERCATEGORY")==null?"":resultOfSearchaccount.getString("CUSTOMERCATEGORY"));
-				customer.setCustomerprofilecode(resultOfSearchaccount.getString("CUSTOMERCODE")==null?"":resultOfSearchaccount.getString("CUSTOMERCODE"));
-				customer.setCustomerprofiletype(resultOfSearchaccount.getString("CUSTOMERPROFILETYPE")==null?"":resultOfSearchaccount.getString("CUSTOMERPROFILETYPE"));
-				customer.setName(resultOfSearchaccount.getString("MERCHANTNAME")==null?"":resultOfSearchaccount.getString("MERCHANTNAME"));
-				customers.add(customer);
-				addaccounts.setCustomer(customers);
-				
-				ArrayList<RegionPojo> regions =  new ArrayList<RegionPojo>();
-				RegionPojo region = new RegionPojo();
-				region.setCode(resultOfSearchaccount.getString("REGIONCODE")==null?"":resultOfSearchaccount.getString("REGIONCODE"));
-				region.setDistrict(resultOfSearchaccount.getString("DISTRICT")==null?"":resultOfSearchaccount.getString("DISTRICT"));
-				region.setName(resultOfSearchaccount.getString("REGIONNAME")==null?"":resultOfSearchaccount.getString("REGIONNAME"));
-				regions.add(region);
-				addaccounts.setRegions(regions);
-				
-				ArrayList<TerminalPojo> accountTerminals =  new ArrayList<TerminalPojo>();
-				
-				TerminalPojo terminal =  new TerminalPojo();
-				
+			AccountPojo addaccounts = new AccountPojo();
+			addaccounts.setAccountCode(resultOfSearchaccount.getString("ACCOUNTCODE")==null?"":resultOfSearchaccount.getString("ACCOUNTCODE"));
+			addaccounts.setAccountStatus(resultOfSearchaccount.getString("accountstatus")==null?"":resultOfSearchaccount.getString("accountstatus"));
+			addaccounts.setUsage(resultOfSearchaccount.getString("USAGE")==null?"":resultOfSearchaccount.getString("USAGE"));
+			addaccounts.setCurrency(resultOfSearchaccount.getString("CURRENCY")==null?"":resultOfSearchaccount.getString("CURRENCY"));
+			addaccounts.setAccountClass(resultOfSearchaccount.getString("ACCOUNTCLASS")==null?"":resultOfSearchaccount.getString("ACCOUNTCLASS"));
+			addaccounts.setAccountGroup(resultOfSearchaccount.getString("ACCOUNTGROUP")==null?"":resultOfSearchaccount.getString("ACCOUNTGROUP"));
+			addaccounts.setOfficialType(resultOfSearchaccount.getString("OFFICIALTYPE")==null?"":resultOfSearchaccount.getString("OFFICIALTYPE"));
+			addaccounts.setDescription(resultOfSearchaccount.getString("DESCRIPTION")==null?"":resultOfSearchaccount.getString("DESCRIPTION"));
+			addaccounts.setBalance(resultOfSearchaccount.getString("BALANCE")==null?"":resultOfSearchaccount.getString("BALANCE"));
+			addaccounts.setCreditLimit(resultOfSearchaccount.getString("CREDITLIMIT")==null?"":resultOfSearchaccount.getString("CREDITLIMIT"));
+			addaccounts.setDailyLimit(resultOfSearchaccount.getString("DAILYLIMIT")==null?"":resultOfSearchaccount.getString("DAILYLIMIT"));
+			addaccounts.setOfficialnumber(resultOfSearchaccount.getString("OFFICIALTYPENUMBER")==null?"":resultOfSearchaccount.getString("OFFICIALTYPENUMBER"));
+			addaccounts.setCsp(resultOfSearchaccount.getString("CUSTOMERCSP")==null?"":resultOfSearchaccount.getString("CUSTOMERCSP"));
+			addaccounts.setAccountType(resultOfSearchaccount.getString("ACCOUNTTYPE")==null?"":resultOfSearchaccount.getString("ACCOUNTTYPE"));
+
+			ArrayList<CustomerPojo> customers =  new ArrayList<CustomerPojo>();
+			CustomerPojo customer = new CustomerPojo();
+			customer.setCustomercatagory(resultOfSearchaccount.getString("CUSTOMERCATEGORY")==null?"":resultOfSearchaccount.getString("CUSTOMERCATEGORY"));
+			customer.setCustomerprofilecode(resultOfSearchaccount.getString("CUSTOMERCODE")==null?"":resultOfSearchaccount.getString("CUSTOMERCODE"));
+			customer.setCustomerprofiletype(resultOfSearchaccount.getString("CUSTOMERPROFILETYPE")==null?"":resultOfSearchaccount.getString("CUSTOMERPROFILETYPE"));
+			customer.setName(resultOfSearchaccount.getString("MERCHANTNAME")==null?"":resultOfSearchaccount.getString("MERCHANTNAME"));
+			customers.add(customer);
+			addaccounts.setCustomer(customers);
+
+			ArrayList<RegionPojo> regions =  new ArrayList<RegionPojo>();
+			RegionPojo region = new RegionPojo();
+			region.setCode(resultOfSearchaccount.getString("REGIONCODE")==null?"":resultOfSearchaccount.getString("REGIONCODE"));
+			region.setDistrict(resultOfSearchaccount.getString("DISTRICT")==null?"":resultOfSearchaccount.getString("DISTRICT"));
+			region.setName(resultOfSearchaccount.getString("REGIONNAME")==null?"":resultOfSearchaccount.getString("REGIONNAME"));
+			regions.add(region);
+			addaccounts.setRegions(regions);
+
+			ArrayList<TerminalPojo> accountTerminals =  new ArrayList<TerminalPojo>();
+
+			TerminalPojo terminal =  new TerminalPojo();
+
+			terminal.setTerminalstatus(resultOfSearchaccount.getString("TERMINALSTATUS")==null?"":resultOfSearchaccount.getString("TERMINALSTATUS"));
+			terminal.setTerminalType(resultOfSearchaccount.getString("TERMINALTYPE")==null?"":resultOfSearchaccount.getString("TERMINALTYPE"));
+			terminal.setSerialNumber(resultOfSearchaccount.getString("TERMINALSERIAL")==null?"":resultOfSearchaccount.getString("TERMINALSERIAL"));
+			terminal.setName(resultOfSearchaccount.getString("TERMINALNAME")==null?"":resultOfSearchaccount.getString("TERMINALNAME"));
+			terminal.setDescription(resultOfSearchaccount.getString("TERMINALDESCRIPTION")==null?"":resultOfSearchaccount.getString("TERMINALDESCRIPTION"));
+			terminal.setHashedPin(resultOfSearchaccount.getString("TERMINALPIN")==null?"":resultOfSearchaccount.getString("TERMINALPIN"));
+
+			accountTerminals.add(terminal); 
+
+			while(resultOfSearchaccount.next())
+			{
 				terminal.setTerminalstatus(resultOfSearchaccount.getString("TERMINALSTATUS")==null?"":resultOfSearchaccount.getString("TERMINALSTATUS"));
 				terminal.setTerminalType(resultOfSearchaccount.getString("TERMINALTYPE")==null?"":resultOfSearchaccount.getString("TERMINALTYPE"));
 				terminal.setSerialNumber(resultOfSearchaccount.getString("TERMINALSERIAL")==null?"":resultOfSearchaccount.getString("TERMINALSERIAL"));
@@ -272,23 +296,136 @@ public class AccountsVerification {
 				terminal.setDescription(resultOfSearchaccount.getString("TERMINALDESCRIPTION")==null?"":resultOfSearchaccount.getString("TERMINALDESCRIPTION"));
 				terminal.setHashedPin(resultOfSearchaccount.getString("TERMINALPIN")==null?"":resultOfSearchaccount.getString("TERMINALPIN"));
 
-				accountTerminals.add(terminal); 
-				
-				while(resultOfSearchaccount.next())
-	              {
-					terminal.setTerminalstatus(resultOfSearchaccount.getString("TERMINALSTATUS")==null?"":resultOfSearchaccount.getString("TERMINALSTATUS"));
-					terminal.setTerminalType(resultOfSearchaccount.getString("TERMINALTYPE")==null?"":resultOfSearchaccount.getString("TERMINALTYPE"));
-					terminal.setSerialNumber(resultOfSearchaccount.getString("TERMINALSERIAL")==null?"":resultOfSearchaccount.getString("TERMINALSERIAL"));
-					terminal.setName(resultOfSearchaccount.getString("TERMINALNAME")==null?"":resultOfSearchaccount.getString("TERMINALNAME"));
-					terminal.setDescription(resultOfSearchaccount.getString("TERMINALDESCRIPTION")==null?"":resultOfSearchaccount.getString("TERMINALDESCRIPTION"));
-					terminal.setHashedPin(resultOfSearchaccount.getString("TERMINALPIN")==null?"":resultOfSearchaccount.getString("TERMINALPIN"));
+				accountTerminals.add(terminal);  
+			}
+			addaccounts.setTerminals(accountTerminals);
 
-					accountTerminals.add(terminal);  
-	              }
-				addaccounts.setTerminals(accountTerminals);
+			addAccount.add(addaccounts);
 
-				addAccount.add(addaccounts);
+			conn.closeDBConnection(myconection);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return addAccount;
+	}
+
+	public ArrayList<AccountPojo> accountProfile(SearchPojo srchacc)
+	{
+		// 	RETURN ACCOUNT POJO
+		ArrayList<AccountPojo> addAccount = new ArrayList<AccountPojo>();
+
+		try {
+			DatabaseConnection conn= new DatabaseConnection();
+			Connection myconection=conn.openConnection();
+			StringBuilder queryCond = new StringBuilder();
+
+			queryCond.append("SELECT  \r\n" + 
+					"a.id \r\n" + 
+					",a.code as AccountCode \r\n" + 
+					",aps.NAME_PRIMARY_LANG as profileId \r\n" + 
+					"from POS_SOF.ACCOUNTS a \r\n" + 
+					"left JOIN ACCOUNT_PROFILES_LOOKUP aps on a.PROFILE_ID = aps.id  \r\n" + 
+					"where a.code ='"+srchacc.getAccountCode()+"'\r\n");
+			System.out.println(queryCond.toString());
+			ResultSet resultOfSearchaccount=conn.executeVerificationQuery(myconection, queryCond.toString());
+
+			resultOfSearchaccount.next();
+
+			AccountPojo addaccounts = new AccountPojo();
+			addaccounts.setAccountCode(resultOfSearchaccount.getString("ACCOUNTCODE")==null?"":resultOfSearchaccount.getString("ACCOUNTCODE"));
+			addaccounts.setProfileid(resultOfSearchaccount.getString("profileId")==null?"":resultOfSearchaccount.getString("profileId"));
 			
+			addAccount.add(addaccounts);
+			conn.closeDBConnection(myconection);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return addAccount;
+	}
+	
+	
+	public ArrayList<AccountPojo> cspProgramData(SearchPojo srchacc)
+	{
+		// 	RETURN ACCOUNT POJO
+		ArrayList<AccountPojo> addAccount = new ArrayList<AccountPojo>();
+
+		try {
+			DatabaseConnection conn= new DatabaseConnection();
+			Connection myconection=conn.openConnection();
+			StringBuilder queryCond = new StringBuilder();
+
+			queryCond.append("SELECT  \r\n" + 
+					"cp.FINANCE_PROGRAM_ID as fnID \r\n" + 
+					",act.NAME_PRIMARY_LANG as acctType \r\n" + 
+					",ul.NAME_PRIMARY_LANG as acctUsage\r\n" + 
+					",c.NAME_PRIMARY_LANG as currency\r\n" + 
+					",cp.SUB_ACCOUNT_DAILY_LIMIT as dailyLimit\r\n" + 
+					",cp.SUB_ACCOUNT_CREDIT_LIMIT as creditLimit\r\n" + 
+					"from CSP_PROGRAM cp\r\n" + 
+					"left JOIN ACCOUNT_TYPES act on cp.SUB_ACCOUNT_TYPE_ID = act.id  \r\n" + 
+					"left JOIN csp cs on cp.CSP_ID = cs.id \r\n" + 
+					"left JOIN USAGE_LOOKUP ul on cp.SUB_ACCOUNT_USAGE_ID = ul.id  \r\n" + 
+					"left JOIN CURRENCY c on cp.SUB_ACCOUNT_CURRENCY_ID = c.id  \r\n" + 
+					"where cs.NAME_PRIMARY_LANG = '"+srchacc.getCsp()+"'\r\n");
+			System.out.println(queryCond.toString());
+			ResultSet resultOfSearchaccount=conn.executeVerificationQuery(myconection, queryCond.toString());
+
+			resultOfSearchaccount.next();
+
+			AccountPojo addaccounts = new AccountPojo();
+			addaccounts.setFinanceProgram(resultOfSearchaccount.getString("fnID")==null?"":resultOfSearchaccount.getString("fnID"));
+			addaccounts.setAccountType(resultOfSearchaccount.getString("acctType")==null?"":resultOfSearchaccount.getString("acctType"));
+			addaccounts.setUsage(resultOfSearchaccount.getString("acctUsage")==null?"":resultOfSearchaccount.getString("acctUsage"));
+			addaccounts.setCurrency(resultOfSearchaccount.getString("currency")==null?"":resultOfSearchaccount.getString("currency"));
+			addaccounts.setDailyLimit(resultOfSearchaccount.getString("dailyLimit")==null?"":resultOfSearchaccount.getString("dailyLimit"));
+			addaccounts.setCreditLimit(resultOfSearchaccount.getString("creditLimit")==null?"":resultOfSearchaccount.getString("creditLimit"));
+
+			addAccount.add(addaccounts);
+			conn.closeDBConnection(myconection);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return addAccount;
+	}
+	
+	public ArrayList<AccountPojo> megaAccountData(SearchPojo srchacc)
+	{
+		// 	RETURN ACCOUNT POJO
+		ArrayList<AccountPojo> addAccount = new ArrayList<AccountPojo>();
+
+		try {
+			DatabaseConnection conn= new DatabaseConnection();
+			Connection myconection=conn.openConnection();
+			StringBuilder queryCond = new StringBuilder();
+
+			queryCond.append("SELECT  \r\n" + 
+					"fps.SUB_ACCOUNT_ID as subId \r\n" + 
+					",a.code as acctCode \r\n" +
+					",fps.MAXIMUM_AMOUNT as dailyLimit\r\n" + 
+					",fp.NAME_PRIMARY_LANG as financeProg\r\n" + 
+					"from FINANCE_PROGRAMS_SETUP fps\r\n" + 
+					"left JOIN ACCOUNTS a on fps.PRIMARY_ACCOUNT_ID = a.id  \r\n" + 
+					"left JOIN FINANCE_PROGRAMS fp on fps.PROGRAM_ID = fp.id\r\n" + 
+					"where\r\n" + 
+					"a.code ='"+srchacc.getAccountCode()+"'\r\n" + 
+					"AND fps.PROGRAM_ID ='"+srchacc.getFinanceProgram()+"'\r\n");
+			System.out.println(queryCond.toString());
+			ResultSet resultOfSearchaccount=conn.executeVerificationQuery(myconection, queryCond.toString());
+
+			resultOfSearchaccount.next();
+
+			AccountPojo addaccounts = new AccountPojo();
+			addaccounts.setPrimaryAccountCode(resultOfSearchaccount.getString("acctCode")==null?"":resultOfSearchaccount.getString("acctCode"));
+			addaccounts.setDailyLimit(resultOfSearchaccount.getString("dailyLimit")==null?"":resultOfSearchaccount.getString("dailyLimit"));
+			addaccounts.setFinanceProgram(resultOfSearchaccount.getString("financeProg")==null?"":resultOfSearchaccount.getString("financeProg"));
+
+			addAccount.add(addaccounts);
 			conn.closeDBConnection(myconection);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -319,7 +456,7 @@ public class AccountsVerification {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public ArrayList<AccountPojo> updateAccount(SearchPojo srchacc, String flag)
 	{
 		// 	RETURN ACCOUNT POJO
@@ -374,11 +511,11 @@ public class AccountsVerification {
 
 				ArrayList<RegionPojo> regions = new ArrayList<RegionPojo>();
 				RegionPojo reg = new RegionPojo();
-				
+
 				reg.setCode(resultOfSearchaccount.getString("regioncode")==null?"":resultOfSearchaccount.getString("regioncode"));
 				reg.setName(resultOfSearchaccount.getString("regionname")==null?"":resultOfSearchaccount.getString("REGIONNAME"));
 				reg.setDistrict(resultOfSearchaccount.getString("district")==null?"":resultOfSearchaccount.getString("district"));
-				
+
 				regions.add(reg);
 				addaccounts.setRegions(regions);
 

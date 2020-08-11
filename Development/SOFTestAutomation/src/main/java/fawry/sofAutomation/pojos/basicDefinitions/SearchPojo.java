@@ -21,8 +21,15 @@ public class SearchPojo extends MainPOJO {
 	private String measureValue;
 	private String errorCode;
 	private String customerCategory;
+	private String financeProgramStatus;
 
 	
+	public String getFinanceProgramStatus() {
+		return financeProgramStatus;
+	}
+	public void setFinanceProgramStatus(String financeProgramStatus) {
+		this.financeProgramStatus = financeProgramStatus;
+	}
 	public String getPeriod() {
 		return period;
 	}

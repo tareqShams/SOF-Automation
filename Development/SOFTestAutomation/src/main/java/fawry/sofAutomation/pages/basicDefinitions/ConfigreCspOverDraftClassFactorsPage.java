@@ -29,151 +29,8 @@ public class ConfigreCspOverDraftClassFactorsPage {
 
 	@FindBy(id="ConfigureCSPClassOverdraftFactor:SearchCSPBranchList")
 	WebElement csplist;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:valueInId")
-	WebElement BPlusFactor;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:saturdayValueInId")
-	WebElement BPlusSat;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:sundayValueInId")
-	WebElement BPlusSun;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:mondayValueInId")
-	WebElement BPlusMon;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:tuesdayValueInId")
-	WebElement BPlusTue;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:wednesValueInId")
-	WebElement BPlusWed;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:thursdayValueInId")
-	WebElement BPlusThu;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:0:fridayValueInId")
-	WebElement BPlusFri;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:valueInId")
-	WebElement CFactor;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:saturdayValueInId")
-	WebElement CSat;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:sundayValueInId")
-	WebElement CSun;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:mondayValueInId")
-	WebElement CMon;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:tuesdayValueInId")
-	WebElement CTue;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:wednesValueInId")
-	WebElement CWed;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:thursdayValueInId")
-	WebElement CThu;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:1:fridayValueInId")
-	WebElement CFri;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:valueInId")
-	WebElement BFactor;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:saturdayValueInId")
-	WebElement BSat;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:sundayValueInId")
-	WebElement BSun;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:mondayValueInId")
-	WebElement BMon;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:tuesdayValueInId")
-	WebElement BTue;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:wednesValueInId")
-	WebElement BWed;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:thursdayValueInId")
-	WebElement BThu;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:2:fridayValueInId")
-	WebElement BFri;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:valueInId")
-	WebElement APlusFactor;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:saturdayValueInId")
-	WebElement APlusSat;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:sundayValueInId")
-	WebElement APlusSun;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:mondayValueInId")
-	WebElement APlusMon;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:tuesdayValueInId")
-	WebElement APlusTue;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:wednesValueInId")
-	WebElement APlusWed;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:thursdayValueInId")
-	WebElement APlusThu;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:3:fridayValueInId")
-	WebElement APlusFri;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:valueInId")
-	WebElement AFactor;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:saturdayValueInId")
-	WebElement ASat;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:sundayValueInId")
-	WebElement ASun;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:mondayValueInId")
-	WebElement AMon;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:tuesdayValueInId")
-	WebElement ATue;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:wednesValueInId")
-	WebElement AWed;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:thursdayValueInId")
-	WebElement AThu;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:4:fridayValueInId")
-	WebElement AFri;
-
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:valueInId")
-	WebElement CPlusFactor;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:saturdayValueInId")
-	WebElement CPlusSat;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:sundayValueInId")
-	WebElement CPlusSun;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:mondayValueInId")
-	WebElement CPlusMon;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:tuesdayValueInId")
-	WebElement CPlusTue;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:wednesValueInId")
-	WebElement CPlusWed;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:thursdayValueInId")
-	WebElement CPlusThu;
-
-	@FindBy(id="ConfigureCSPClassOverdraftFactor:CSPClassFactors:5:fridayValueInId")
-	WebElement CPlusFri;
+	@FindBy(xpath="//td[@class='grid']//span")
+	List<WebElement> classesLst;
 
 	@FindBy(id="ConfigureCSPClassOverdraftFactor:savebtn")
 	WebElement savebtn;
@@ -196,186 +53,95 @@ public class ConfigreCspOverDraftClassFactorsPage {
 	{
 
 		resetbtn.click();
-
+		feesobj.setNumberOfClasses(classesLst.size());
 		if (!feesobj.getCsp().isEmpty())
 		{
 			new Select(csplist).selectByVisibleText(feesobj.getCsp());
 		}
 
-		bPlusValues(feesobj);
-		cValues(feesobj);
-		bValues(feesobj);
-		aPlusValues(feesobj);
-		aValues(feesobj);
-		CPlusValues(feesobj);	
+		for (int i =0 ; i < classesLst.size(); i++)
+		{
+			if(i == 0)
+			{
+				feesobj.setAccountclass(feesobj.getFees().get(0).getAccountclass());
+				feesobj.setFactor(feesobj.getFees().get(0).getFactor());
+				feesobj.setSat(feesobj.getFees().get(0).getSat());
+				feesobj.setSun(feesobj.getFees().get(0).getSun());
+				feesobj.setMon(feesobj.getFees().get(0).getMon());
+				feesobj.setTue(feesobj.getFees().get(0).getTue());
+				feesobj.setWed(feesobj.getFees().get(0).getWed());
+				feesobj.setThu(feesobj.getFees().get(0).getThu());
+				feesobj.setFri(feesobj.getFees().get(0).getFri());
+			}
+			else if(i == 1)
+			{
+				feesobj.setAccountclass(feesobj.getFeesA().get(0).getAccountclass());
+				feesobj.setFactor(feesobj.getFeesA().get(0).getFactor());
+				feesobj.setSat(feesobj.getFeesA().get(0).getSat());
+				feesobj.setSun(feesobj.getFeesA().get(0).getSun());
+				feesobj.setMon(feesobj.getFeesA().get(0).getMon());
+				feesobj.setTue(feesobj.getFeesA().get(0).getTue());
+				feesobj.setWed(feesobj.getFeesA().get(0).getWed());
+				feesobj.setThu(feesobj.getFeesA().get(0).getThu());
+				feesobj.setFri(feesobj.getFeesA().get(0).getFri());
+			}
+			else if(i == 2)
+			{
+				feesobj.setAccountclass(feesobj.getFeesB().get(0).getAccountclass());
+				feesobj.setFactor(feesobj.getFeesB().get(0).getFactor());
+				feesobj.setSat(feesobj.getFeesB().get(0).getSat());
+				feesobj.setSun(feesobj.getFeesB().get(0).getSun());
+				feesobj.setMon(feesobj.getFeesB().get(0).getMon());
+				feesobj.setTue(feesobj.getFeesB().get(0).getTue());
+				feesobj.setWed(feesobj.getFeesB().get(0).getWed());
+				feesobj.setThu(feesobj.getFeesB().get(0).getThu());
+				feesobj.setFri(feesobj.getFeesB().get(0).getFri());
+			}
+
+			WebElement factorTxt = driver.findElement
+			(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":valueInId"));
+			factorTxt.clear();
+			factorTxt.sendKeys(feesobj.getFactor());
+			
+			WebElement satTxt = driver.findElement(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":saturdayValueInId"));
+			satTxt.clear();
+			satTxt.sendKeys(feesobj.getSat());
+			
+			WebElement sunTxt = 
+					driver.findElement(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":sundayValueInId"));
+			sunTxt.clear();
+			sunTxt.sendKeys(feesobj.getSun());
+			
+			WebElement monTxt = 
+					driver.findElement(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":mondayValueInId"));
+			monTxt.clear();
+			monTxt.sendKeys(feesobj.getMon());
+			
+			WebElement tueTxt = 
+					driver.findElement(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":tuesdayValueInId"));
+			tueTxt.clear();
+			tueTxt.sendKeys(feesobj.getTue());
+			
+			WebElement wedTxt = 
+					driver.findElement(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":wednesValueInId"));
+			wedTxt.clear();	
+			wedTxt.sendKeys(feesobj.getWed());
+			
+			WebElement thuTxt = 
+					driver.findElement(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":thursdayValueInId"));
+			thuTxt.clear();
+			thuTxt.sendKeys(feesobj.getThu());
+			
+			WebElement friTxt = 
+					driver.findElement(By.id("ConfigureCSPClassOverdraftFactor:CSPClassFactors:"+i+":fridayValueInId"));
+			friTxt.clear();
+			friTxt.sendKeys(feesobj.getFri());
+		}
 	}
 
-	public void  bPlusValues(CSPFeesPojo feesobj)
-	{
-		BPlusFactor.clear();
-		BPlusFactor.sendKeys(feesobj.getBPlusFactor());
 
-		BPlusSat.clear();
-		BPlusSat.sendKeys(feesobj.getBPlusSat());
 
-		BPlusSun.clear();
-		BPlusSun.sendKeys(feesobj.getBPlusSun());
 
-		BPlusMon.clear();
-		BPlusMon.sendKeys(feesobj.getBPlusMon());
-
-		BPlusTue.clear();
-		BPlusTue.sendKeys(feesobj.getBPlusTue());
-
-		BPlusWed.clear();
-		BPlusWed.sendKeys(feesobj.getBPlusWed());
-
-		BPlusThu.clear();
-		BPlusThu.sendKeys(feesobj.getBPlusThu());
-
-		BPlusFri.clear();
-		BPlusFri.sendKeys(feesobj.getBPlusFri());
-
-	}
-
-	public void  cValues(CSPFeesPojo feesobj)
-	{
-		CFactor.clear();
-		CFactor.sendKeys(feesobj.getCFactor());
-
-		CSat.clear();
-		CSat.sendKeys(feesobj.getCSat());
-
-		CSun.clear();
-		CSun.sendKeys(feesobj.getCSun());
-
-		CMon.clear();
-		CMon.sendKeys(feesobj.getCMon());
-
-		CTue.clear();
-		CTue.sendKeys(feesobj.getCTue());
-
-		CWed.clear();
-		CWed.sendKeys(feesobj.getCWed());
-
-		CThu.clear();
-		CThu.sendKeys(feesobj.getCThu());
-
-		CFri.clear();
-		CFri.sendKeys(feesobj.getCFri());
-	}
-
-	public void  bValues(CSPFeesPojo feesobj)
-	{
-		BFactor.clear();
-		BFactor.sendKeys(feesobj.getBFactor());
-
-		BSat.clear();
-		BSat.sendKeys(feesobj.getBSat());
-
-		BSun.clear();
-		BSun.sendKeys(feesobj.getBSun());
-
-		BMon.clear();
-		BMon.sendKeys(feesobj.getBMon());
-
-		BTue.clear();
-		BTue.sendKeys(feesobj.getBTue());
-
-		BWed.clear();
-		BWed.sendKeys(feesobj.getBWed());
-
-		BThu.clear();
-		BThu.sendKeys(feesobj.getBThu());
-
-		BFri.clear();
-		BFri.sendKeys(feesobj.getBFri());
-	}
-	
-	public void  aPlusValues(CSPFeesPojo feesobj)
-	{
-		APlusFactor.clear();
-		APlusFactor.sendKeys(feesobj.getAPlusFactor());
-
-		APlusSat.clear();
-		APlusSat.sendKeys(feesobj.getAPlusSat());
-
-		APlusSun.clear();
-		APlusSun.sendKeys(feesobj.getAPlusSun());
-
-		APlusMon.clear();
-		APlusMon.sendKeys(feesobj.getAPlusMon());
-
-		APlusTue.clear();
-		APlusTue.sendKeys(feesobj.getAPlusTue());
-
-		APlusWed.clear();
-		APlusWed.sendKeys(feesobj.getAPlusWed());
-
-		APlusThu.clear();
-		APlusThu.sendKeys(feesobj.getAPlusThu());
-
-		APlusFri.clear();
-		APlusFri.sendKeys(feesobj.getAPlusFri());
-
-	}
-
-	public void  aValues(CSPFeesPojo feesobj)
-	{
-		AFactor.clear();
-		AFactor.sendKeys(feesobj.getAFactor());
-
-		ASat.clear();
-		ASat.sendKeys(feesobj.getASat());
-
-		ASun.clear();
-		ASun.sendKeys(feesobj.getASun());
-
-		AMon.clear();
-		AMon.sendKeys(feesobj.getAMon());
-
-		ATue.clear();
-		ATue.sendKeys(feesobj.getATue());
-
-		AWed.clear();
-		AWed.sendKeys(feesobj.getAWed());
-
-		AThu.clear();
-		AThu.sendKeys(feesobj.getAThu());
-
-		AFri.clear();
-		AFri.sendKeys(feesobj.getAFri());
-	}
-	
-	
-	public void  CPlusValues(CSPFeesPojo feesobj)
-	{
-		CPlusFactor.clear();
-		CPlusFactor.sendKeys(feesobj.getCPlusFactor());
-
-		CPlusSat.clear();
-		CPlusSat.sendKeys(feesobj.getCPlusSat());
-
-		CPlusSun.clear();
-		CPlusSun.sendKeys(feesobj.getCPlusSun());
-
-		CPlusMon.clear();
-		CPlusMon.sendKeys(feesobj.getCPlusMon());
-
-		CPlusTue.clear();
-		CPlusTue.sendKeys(feesobj.getCPlusTue());
-
-		CPlusWed.clear();
-		CPlusWed.sendKeys(feesobj.getCPlusWed());
-
-		CPlusThu.clear();
-		CPlusThu.sendKeys(feesobj.getCPlusThu());
-
-		CPlusFri.clear();
-		CPlusFri.sendKeys(feesobj.getCPlusFri());
-	}
-
-	
 	//Saving or Resetting Data
 	public void saveOrResetData(CSPFeesPojo feesobj) {
 
@@ -411,6 +177,11 @@ public class ConfigreCspOverDraftClassFactorsPage {
 				errorMsgs=errorMsgs+"/"+HeaderErrorMsgsList.get(i).getText().toString();
 			}
 			actual = errorMsgs;	
+		}
+		else if ( driver.findElements(By.className("alert")).size() != 0)
+		{
+
+			actual = driver.findElement(By.className("alert")).getText();	
 		}
 		return actual;
 	}

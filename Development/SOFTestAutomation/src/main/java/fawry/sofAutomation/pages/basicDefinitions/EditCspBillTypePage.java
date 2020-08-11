@@ -51,6 +51,9 @@ public class EditCspBillTypePage extends MainPage {
 	@FindBy(id="errorMessage")
 	List<WebElement> errorMassage;
 	
+	@FindBy(id="editPSP:enableInadvanceCommisions")
+	WebElement commissionsBtn;
+	
 	public String CustomerServiceProvider =null;
 	public String  updateCspBillType(CspBillTypePojo cspBillObject)	
 	{
@@ -60,6 +63,10 @@ public class EditCspBillTypePage extends MainPage {
 		amount.sendKeys(cspBillObject.getAmount());
 		loyaltyNumOfMonths.clear();
 		loyaltyNumOfMonths.sendKeys(cspBillObject.getLoyaltyNumOfMonths());
+		if(cspBillObject.getFlag().contains("Commissions"))
+		{
+			commissionsBtn.click();
+		}
 		String msg;
 		if(cspBillObject.getFlag().contains("save"))
 		{

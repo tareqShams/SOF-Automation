@@ -72,14 +72,14 @@ public class SearchVefication {
 			{
 				CSPFeesPojo addfees = new CSPFeesPojo();
 				
-				addfees.setFactorValue(resultOfSearchaccount.getString("FACVALUE")==null?"":resultOfSearchaccount.getString("FACVALUE"));
-				addfees.setSaturdayValue(resultOfSearchaccount.getString("SATVALUE")==null?"":resultOfSearchaccount.getString("SATVALUE"));
-				addfees.setSundayValue(resultOfSearchaccount.getString("SUNVALUE")==null?"":resultOfSearchaccount.getString("SUNVALUE"));
-				addfees.setMondayValue(resultOfSearchaccount.getString("MONVALUE")==null?"":resultOfSearchaccount.getString("MONVALUE"));
-				addfees.setTuesdayValue(resultOfSearchaccount.getString("TUEVALUE")==null?"":resultOfSearchaccount.getString("TUEVALUE"));
-				addfees.setWedensdayValue(resultOfSearchaccount.getString("WEDVALUE")==null?"":resultOfSearchaccount.getString("WEDVALUE"));
-				addfees.setThursdayValue(resultOfSearchaccount.getString("THUVALUE")==null?"":resultOfSearchaccount.getString("THUVALUE"));
-				addfees.setFridayValue(resultOfSearchaccount.getString("FRIVALUE")==null?"":resultOfSearchaccount.getString("FRIVALUE"));
+				addfees.setFactor(resultOfSearchaccount.getString("FACVALUE")==null?"":resultOfSearchaccount.getString("FACVALUE"));
+				addfees.setSat(resultOfSearchaccount.getString("SATVALUE")==null?"":resultOfSearchaccount.getString("SATVALUE"));
+				addfees.setSun(resultOfSearchaccount.getString("SUNVALUE")==null?"":resultOfSearchaccount.getString("SUNVALUE"));
+				addfees.setMon(resultOfSearchaccount.getString("MONVALUE")==null?"":resultOfSearchaccount.getString("MONVALUE"));
+				addfees.setTue(resultOfSearchaccount.getString("TUEVALUE")==null?"":resultOfSearchaccount.getString("TUEVALUE"));
+				addfees.setWed(resultOfSearchaccount.getString("WEDVALUE")==null?"":resultOfSearchaccount.getString("WEDVALUE"));
+				addfees.setThu(resultOfSearchaccount.getString("THUVALUE")==null?"":resultOfSearchaccount.getString("THUVALUE"));
+				addfees.setFri(resultOfSearchaccount.getString("FRIVALUE")==null?"":resultOfSearchaccount.getString("FRIVALUE"));
 
 				fees.add(addfees);
 			}

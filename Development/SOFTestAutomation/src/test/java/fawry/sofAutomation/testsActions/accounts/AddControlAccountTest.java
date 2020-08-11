@@ -12,7 +12,6 @@ import org.testng.asserts.SoftAssert;
 import fawry.sofAutomation.constants.accounts.AssertionErrorMessages;
 import fawry.sofAutomation.constants.accounts.Constants;
 import fawry.sofAutomation.dbVerification.accounts.ControlAccountVefication;
-import fawry.sofAutomation.dbVerification.accounts.SearchVefication;
 import fawry.sofAutomation.pages.accounts.AddControlAccountPage;
 import fawry.sofAutomation.pages.login.LoginPage;
 import fawry.sofAutomation.pojos.accounts.AccountPojo;

@@ -5,7 +5,7 @@
 	<test name="MainTest">
 		<parameter name="browserType" value="CH" />
 		<parameter name="url"
-			value="https://10.96.0.65:9443/POSAdminTool/AdminTool/Login.faces" />
+			value="http://10.96.0.12:1727/POSAdminTool/AdminTool/Login.faces" />
 		<parameter name="testDataType" value="Excel" />
 		<classes>
 		
@@ -29,8 +29,6 @@
 			<class name="fawry.sofAutomation.testsActions.accounts.ManageAccountStatusTest" />
 -->
 
-
-
 <!-- 						Admin Classes							 -->
 <!-- 		
 
@@ -46,7 +44,6 @@
 			<class name="fawry.sofAutomation.testsActions.admin.AddRoleTest"/> 
 			
 -->
-
 
 <!-- 						Financial Activities Classes							 -->
 
@@ -88,6 +85,9 @@
 		    <class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddFinanceProgramSetupTest"/>						           
 -->  
 
+    		<class name="fawry.sofAutomation.testsActions.BasicDefinitions.AddFinanceProgramTest"/>
+
+            
 
 
 		</classes>

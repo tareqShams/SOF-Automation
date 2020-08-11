@@ -80,7 +80,7 @@ public class SearchFinanceProgramSetupPage {
 		}
 		if (!settingsobj.getStatus().isEmpty())
 		{
-			new Select(programStatuslist).selectByVisibleText(settingsobj.getStatus()); 
+			new Select(programStatuslist).selectByVisibleText(settingsobj.getStatus() + " - " + settingsobj.getStatus()); 
 		}
 
 	}

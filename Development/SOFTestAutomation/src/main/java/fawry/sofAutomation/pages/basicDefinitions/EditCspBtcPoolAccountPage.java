@@ -18,26 +18,44 @@ public class EditCspBtcPoolAccountPage extends MainPage{
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
-	@FindBy(id="addCSP:textPoolAccount")
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:textPoolAccount")
 	WebElement poolAccount;
 
 
-	@FindBy(id="addCSP:cspList")
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:cspList")
 	WebElement csp;
 
-	@FindBy(id="addCSP:btcList")
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:btcList")
 	WebElement btc;
+	
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:oneAction")
+	WebElement oneActionBtn;
+	
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:sameAction")
+	WebElement actionSynchBtn;
 
-	@FindBy(id="addCSP:saveBtn")
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:sameAction")
+	WebElement sameActionBtn;
+	
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:debitOrCredit:0")
+	WebElement poolActionBothBtn;
+	
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:debitOrCredit:1")
+	WebElement poolActionDebitBtn;
+	
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:debitOrCredit:2")
+	WebElement poolActionCreditBtn;
+	
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:saveBtn")
 	WebElement save;
 
-	@FindBy(id="addCSP:backBtn")
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:backBtn")
 	WebElement back;
 
-	@FindBy(id="addCSP:resetBtn")
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:resetBtn")
 	WebElement reset;
 
-	@FindBy(id="addCSP:deletesingleItem")
+	@FindBy(id="EditCSP_BTC_POOL_ACCOUNT:deletesingleItem")
 	WebElement delete;
 
 	@FindBy(className="fieldError")
@@ -61,14 +79,35 @@ public class EditCspBtcPoolAccountPage extends MainPage{
 			poolAccount.clear();
 			poolAccount.sendKeys(CspBtcPoolAccountObj.getNewCode());
 		}
-		  setBillTypeCode =btc.getText();
-		 setCsp= csp.getText();
+		if(CspBtcPoolAccountObj.getFlag().contains("One"))
+		{
+			oneActionBtn.click();
+		}
+		if(CspBtcPoolAccountObj.getFlag().contains("Synch"))
+		{
+			actionSynchBtn.click();
+		}
+		if(CspBtcPoolAccountObj.getFlag().contains("Same"))
+		{
+			sameActionBtn.click();
+		}
+		if(CspBtcPoolAccountObj.getFlag().contains("Both"))
+		{
+			poolActionBothBtn.click();
+		}
+		else if(CspBtcPoolAccountObj.getFlag().contains("Debit"))
+		{
+			poolActionDebitBtn.click();
+		}
+		else if(CspBtcPoolAccountObj.getFlag().contains("Credit"))
+		{
+			poolActionCreditBtn.click();
+		}
 
 		if(CspBtcPoolAccountObj.getFlag().equalsIgnoreCase("save"))
 		{
 			save.click();
 			return correctMessage.get(0).getText();
-
 
 		}
 		else if(CspBtcPoolAccountObj.getFlag().equalsIgnoreCase("delete"))

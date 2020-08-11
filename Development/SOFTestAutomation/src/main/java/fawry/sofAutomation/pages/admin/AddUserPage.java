@@ -130,7 +130,7 @@ public class AddUserPage extends MainPage {
 		//Select User date
 		Date.sendKeys(AddUserObject.GetUserExpirationDate());
 
-		usertype.sendKeys(AddUserObject.getUserType());
+		//usertype.sendKeys(AddUserObject.getUserType());
 
 		AddUserObject.setStutas(status.getText());
 		//check user enforce change password

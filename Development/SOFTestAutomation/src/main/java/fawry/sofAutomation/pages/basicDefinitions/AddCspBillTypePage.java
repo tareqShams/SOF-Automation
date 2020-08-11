@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import fawry.sofAutomation.pojos.basicDefinitions.CspBillTypePojo;
+import fawry.sofAutomation.constants.basicDefinitions.Constants;
 import fawry.sofAutomation.pages.admin.MainPage;
 
 public class AddCspBillTypePage  extends MainPage{
@@ -32,6 +33,10 @@ public class AddCspBillTypePage  extends MainPage{
 	@FindBy(id="addCSP:textMonths")
 	WebElement loyaltyNumOfMonths;
 
+	@FindBy(id="addCSP:enableInadvanceCommisions")
+	WebElement commissionsBtn;
+
+
 	@FindBy(id="addCSP:saveBtn")
 	WebElement save;
 
@@ -49,12 +54,23 @@ public class AddCspBillTypePage  extends MainPage{
 
 	public String  addCspBillType(CspBillTypePojo cspBillObject)	
 	{
-		customerServiceProvider.sendKeys(cspBillObject.getCustomerServiceProvider());
-		billTypeCode.sendKeys(cspBillObject.getBillTypeCode());
+		driver.navigate().to(Constants.ADD_CSP_BILL_TYPE_URL);
+		if(!cspBillObject.getCustomerServiceProvider().isEmpty())
+		{
+			customerServiceProvider.sendKeys(cspBillObject.getCustomerServiceProvider());
+		}
+		if(!cspBillObject.getBillTypeCode().isEmpty())
+		{
+			billTypeCode.sendKeys(cspBillObject.getBillTypeCode());
+		}
 		amount.sendKeys(cspBillObject.getAmount());
 		loyaltyNumOfMonths.sendKeys(cspBillObject.getLoyaltyNumOfMonths());
+		if(cspBillObject.getFlag().contains("Commissions"))
+		{
+			commissionsBtn.click();
+		}
 		System.out.println(cspBillObject.getFlag());
-		if(cspBillObject.getFlag().equalsIgnoreCase("save"))
+		if(cspBillObject.getFlag().contains("save"))
 		{
 			String msg;
 			save.click();

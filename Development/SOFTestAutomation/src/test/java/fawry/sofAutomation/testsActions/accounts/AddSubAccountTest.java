@@ -11,9 +11,7 @@ import org.testng.asserts.SoftAssert;
 
 import fawry.sofAutomation.constants.accounts.AssertionErrorMessages;
 import fawry.sofAutomation.constants.accounts.Constants;
-import fawry.sofAutomation.dbVerification.accounts.SearchVefication;
 import fawry.sofAutomation.dbVerification.accounts.SubAccountsVefication;
-import fawry.sofAutomation.pages.accounts.AddAccountPage;
 import fawry.sofAutomation.pages.accounts.AddSubAccountPage;
 import fawry.sofAutomation.pages.login.LoginPage;
 import fawry.sofAutomation.pojos.accounts.AccountPojo;
@@ -85,14 +83,8 @@ public class AddSubAccountTest extends BasicTest{
 				sa.assertTrue(addsubaccountobj.getAccountNature().contains(accountInDb.getAccountNature()), AssertionErrorMessages.ACCOUNT_NATURE_EXCEL_DB + "In TestCase with id of"+addsubaccountobj.getTestCaseId());
 
 			}
-
 			sa.assertAll();
-
 		}
-
-
-
-
 	}
 
 

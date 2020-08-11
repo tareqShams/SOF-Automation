@@ -42,6 +42,10 @@ public class AssertionErrorMessages {
 	public static final String CUSTOMER_PROFILE_CODE_EXCEL_DB = "Error; Customer Profile Code in Excel And DB dose NOT match";
 	public static final String CUSTOMER_PROFILE_TYPE_EXCEL_DB = "Error; Customer Profile Type in Excel And DB dose NOT match";
 	public static final String CUSTOMER_CATEGORY_EXCEL_DB = "Error; Customer Category in Excel And DB dose NOT match";
+	public static final String ACCOUNT_PROFILE_CODE_EXCEL_DB = "Error; Account Profile in Excel And DB dose NOT match";
+	public static final String DAILY_LIMIT_FINANCE_MEGA = "Error; Daily limit set by finance program and assigned to sub account (mega account) dose NOT match";
+	public static final String PRIMARY_ACCOUNT_CODE = "Error; NO sub account assigned with primary account code (Mega account)";
+	public static final String FINANCE_PROG_MEGA = "Error; Finance Program mismatch with sub account created (Mega account)";
 
 	public static final String DATA_BEFORE_AFTER_RESET = "Error; Data before and after reset does noot match";
 

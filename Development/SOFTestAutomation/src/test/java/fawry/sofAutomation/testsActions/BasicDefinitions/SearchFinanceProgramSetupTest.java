@@ -1,4 +1,4 @@
-package fawry.sofAutomation.testsActions.BasicDefinitions;
+package fawry.sofAutomation.testsActions.basicDefinitions;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
@@ -70,7 +70,13 @@ public class SearchFinanceProgramSetupTest extends BasicTest{
 			SearchPojo searchobj = new SearchPojo();
 			searchobj.setFinanceProgCode(setupobj.getFinanceProgCode());
 			searchobj.setAccountNumber(setupobj.getAccountNumber());
-			
+			// in case of leaving finance program status empty in UI it is set to Active by default
+			if(setupobj.getStatus().isEmpty()) {
+				searchobj.setFinanceProgramStatus("ACTIVE");
+			}
+			else {
+			searchobj.setFinanceProgramStatus(setupobj.getStatus());
+			}
 			// Assert on Debit values
 			ArrayList<FinancePojo> financeSetupInDb = search.searchFinancesSetup(searchobj, "");
 			ArrayList<FinancePojo> financeSetupInTable = table.searchFinanceSetup();

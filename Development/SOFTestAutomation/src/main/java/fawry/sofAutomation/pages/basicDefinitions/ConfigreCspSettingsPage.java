@@ -179,8 +179,10 @@ public class ConfigreCspSettingsPage {
 
 
 	//Saving or Resetting Data
-	public void saveOrResetData(CSPFeesPojo settingsobj) {
+	public void saveOrResetData(CSPFeesPojo settingsobj) throws Exception {
 
+		Thread.sleep(5000);
+		
 		if (settingsobj.getAction().contains("Reset")) 
 		{
 			resetbtn.click();

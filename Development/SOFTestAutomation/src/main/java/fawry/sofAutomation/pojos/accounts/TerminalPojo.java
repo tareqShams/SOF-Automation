@@ -4,21 +4,21 @@ import fawry.sofAutomation.pojos.main.MainPOJO;
 
 public class TerminalPojo extends MainPOJO {
 
-	public String terminalcode;
-	public String name;
-	public String terminaltype;
-	public String serialnumber;
-	public String saprenormaltype;
-	public String terminalstatus;
-	public String accountcode;
-	public String accountstatus;
-	public String terminalpin;
-	public String terminalconfirmpin;
-	public String terminalcsp;
-	public String hashedpin;
-	public String action;
-	public String description;
-	public String profilecode;
+	private String terminalcode;
+	private String name;
+	private String terminaltype;
+	private String serialnumber;
+	private String saprenormaltype;
+	private String terminalstatus;
+	private String accountcode;
+	private String accountstatus;
+	private String terminalpin;
+	private String terminalconfirmpin;
+	private String terminalcsp;
+	private String hashedpin;
+	private String action;
+	private String description;
+	private String profilecode;
 
 	
 	public String getProfilecode() {

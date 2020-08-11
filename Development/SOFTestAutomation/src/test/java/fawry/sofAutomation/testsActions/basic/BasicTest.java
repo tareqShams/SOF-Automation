@@ -18,9 +18,11 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.remote.CapabilityType;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
@@ -39,6 +41,7 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import fawry.sofAutomation.constants.login.Constants;
 import fawry.sofAutomation.utils.PropertiesFilesHandler;
 import fawry.sofAutomation.utils.strategy.TestDataStrategy;
+import io.github.bonigarcia.wdm.WebDriverManager;
 public class BasicTest 
 {
 	public static ExtentHtmlReporter htmlReporter;	
@@ -133,19 +136,30 @@ public class BasicTest
 	{
 		if(browserType.equalsIgnoreCase("CH"))
 		{
-			System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir")+"/src/test/resources/binaries/chromedriver.exe");
-			driver = new ChromeDriver(ChromeOption());
+		   WebDriverManager.chromedriver().setup();
+		   driver = new ChromeDriver(ChromeOption());
 		}
 		else if(browserType.equalsIgnoreCase("FF"))
 		{
-			System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir")+"/src/test/resources/binaries/geckodriver.exe");
-			driver = new FirefoxDriver(FireFoxOption());
+		   WebDriverManager.firefoxdriver().setup();
+		   driver = new FirefoxDriver(FireFoxOption());
 		}
 		else if(browserType.equalsIgnoreCase("IE"))
 		{
-			System.setProperty("webdriver.ie.driver",System.getProperty("user.dir")+"/src/test/resources/binaries/IEDriverServer.exe");
-			driver = new InternetExplorerDriver();
+		   WebDriverManager.iedriver().setup();
+		   driver = new InternetExplorerDriver();
 		}
+		else if(browserType.equalsIgnoreCase("OPERA"))
+		{
+		   WebDriverManager.operadriver().setup();
+		   driver = new OperaDriver();
+		}
+		else if(browserType.equalsIgnoreCase("EDGE"))
+		{
+		   WebDriverManager.edgedriver().setup();
+		   driver = new EdgeDriver();
+		}
+			
 
 		driver.manage().window().maximize();
 		driver.get(url);
@@ -157,6 +171,7 @@ public class BasicTest
 
 	//take screenShot when test case fails and save in screenshots folder
 	@AfterMethod
+	
 	public void screenshotOnFailure(ITestResult result) throws Exception 
 	{
 		if (result.getStatus() == ITestResult.FAILURE) 
